@@ -297,27 +297,22 @@
   
   @media (min-width: 760px) {
     .for-grid {
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr 280px;
       gap: 64px;
       align-items: start;
     }
   }
   
-  .for-image {
-    display: none;
+  .for-list-side {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
   
   @media (min-width: 760px) {
-    .for-image {
-      display: block;
+    .for-list-side {
       padding-top: 8px;
     }
-  }
-  
-  .for-image img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
   
   .for-list {
@@ -729,27 +724,24 @@
           <p>I'm Leah. I built my own coaching practice from scratch — and I know what it feels like to sit on work you believe in, not quite ready to put it out there. The overthinking, the almost-launching, the gap between knowing what you do and being able to say it publicly. I've been in that place.</p>
           <p>Now, alongside my work in tech and coaching, I run a small studio building websites for people whose hardest part isn't the technical execution — it's crossing that threshold. If you've been certified for a year and still don't have a site. If you've been seeing clients privately and you're ready to make it public. If you keep almost-launching and not quite. <em>This is for you.</em></p>
         </div>
-        <div class="for-list">
-          <div class="for-item">
-            <span class="for-item-num">01</span>
-            <span class="for-item-name">Coaches</span>
-          </div>
-          <div class="for-item">
-            <span class="for-item-num">02</span>
-            <span class="for-item-name">Somatic practitioners</span>
-          </div>
-          <div class="for-item">
-            <span class="for-item-num">03</span>
-            <span class="for-item-name">Witches &amp; tarot readers</span>
-          </div>
-          <div class="for-item">
-            <span class="for-item-num">04</span>
-            <span class="for-item-name">Energy healers &amp; mediums</span>
-          </div>
-        </div>
       </div>
-      <div class="for-image">
-        <img src="/doorway.png" alt="An oxblood door, slightly open, in a warm adobe wall">
+      <div class="for-list-side">
+        <div class="for-item">
+          <span class="for-item-num">01</span>
+          <span class="for-item-name">Coaches</span>
+        </div>
+        <div class="for-item">
+          <span class="for-item-num">02</span>
+          <span class="for-item-name">Somatic practitioners</span>
+        </div>
+        <div class="for-item">
+          <span class="for-item-num">03</span>
+          <span class="for-item-name">Witches &amp; tarot readers</span>
+        </div>
+        <div class="for-item">
+          <span class="for-item-num">04</span>
+          <span class="for-item-name">Energy healers &amp; mediums</span>
+        </div>
       </div>
     </div>
   </div>

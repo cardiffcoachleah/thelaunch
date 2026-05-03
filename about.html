@@ -161,15 +161,42 @@
   .about-body em { font-style: italic; }
   
   .about-photo {
-    aspect-ratio: 1;
     overflow: hidden;
-    border: 1px solid var(--rule-soft);
     align-self: center;
   }
   .about-photo img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Credentials with headshot */
+  .creds-with-photo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  @media (min-width: 760px) {
+    .creds-with-photo {
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      align-items: start;
+    }
+  }
+  
+  .creds-headshot {
+    overflow: hidden;
+    border: 1px solid var(--rule-soft);
+  }
+  
+  .creds-headshot img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
+    object-position: center top;
     filter: saturate(0.85) contrast(1.02);
   }
   
@@ -328,7 +355,7 @@
         </div>
       </div>
       <div class="about-photo">
-        <img src="/IMG_7766.JPG" alt="Leah Farmer">
+        <img src="/doorway.png" alt="An oxblood door, slightly open, in a warm adobe wall — the threshold">
       </div>
     </div>
   </div>
@@ -338,29 +365,34 @@
   <div class="wrap">
     <div class="section-label"><span class="section-label-num">01</span>Credentials & training</div>
     
-    <div class="creds-grid">
-      <div class="cred">
-        <div class="cred-category">Tech</div>
-        <div class="cred-list">
-          <div class="cred-item"><em>25 years</em> in technology</div>
-          <div class="cred-item">VP Product, CPO, CPTO at startups and scale-ups</div>
-          <div class="cred-item">Amazon, Google</div>
+    <div class="creds-with-photo">
+      <div class="creds-grid">
+        <div class="cred">
+          <div class="cred-category">Tech</div>
+          <div class="cred-list">
+            <div class="cred-item"><em>25 years</em> in technology</div>
+            <div class="cred-item">VP Product, CPO, CPTO at startups and scale-ups</div>
+            <div class="cred-item">Amazon, Google</div>
+          </div>
+        </div>
+        <div class="cred">
+          <div class="cred-category">Coaching</div>
+          <div class="cred-list">
+            <div class="cred-item"><em>ICF PCC</em> — Professional Certified Coach</div>
+            <div class="cred-item">Certified Wayfinder Life Coach via MarthaBeck.com</div>
+          </div>
+        </div>
+        <div class="cred">
+          <div class="cred-category">Energetics</div>
+          <div class="cred-list">
+            <div class="cred-item">Reiki Level II — Usui Shiki Ryoho</div>
+            <div class="cred-item">EFT Tapping certification <em>(in progress)</em></div>
+            <div class="cred-item">Witch School with Emma Griffin <em>(in progress)</em></div>
+          </div>
         </div>
       </div>
-      <div class="cred">
-        <div class="cred-category">Coaching</div>
-        <div class="cred-list">
-          <div class="cred-item"><em>ICF PCC</em> — Professional Certified Coach</div>
-          <div class="cred-item">Certified Wayfinder Life Coach via MarthaBeck.com</div>
-        </div>
-      </div>
-      <div class="cred">
-        <div class="cred-category">Energetics</div>
-        <div class="cred-list">
-          <div class="cred-item">Reiki Level II — Usui Shiki Ryoho</div>
-          <div class="cred-item">EFT Tapping certification <em>(in progress)</em></div>
-          <div class="cred-item">Witch School with Emma Griffin <em>(in progress)</em></div>
-        </div>
+      <div class="creds-headshot">
+        <img src="/IMG_7766.JPG" alt="Leah Farmer">
       </div>
     </div>
   </div>
