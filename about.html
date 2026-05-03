@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — The Launch by Leah</title>
+<meta name="description" content="Leah Farmer — coach, builder, and the person behind The Launch. 25 years in tech, ICF PCC, and a knack for helping practitioners find their voice.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4EFE8;
+    --paper-soft: #ECE5D8;
+    --paper-deep: #DCD3C5;
+    --ink: #4A3A2A;
+    --ink-soft: #6F5E4D;
+    --ink-faint: #9A8C7C;
+    --oxblood: #6B2C2C;
+    --oxblood-bright: #8A3838;
+    --oxblood-deep: #4F1F1F;
+    --rule: rgba(74, 58, 42, 0.18);
+    --rule-soft: rgba(74, 58, 42, 0.10);
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt";
+    font-variation-settings: "opsz" 14, "SOFT" 50;
+  }
+  
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  
+  /* Top bar */
+  .topbar {
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .topbar-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-variation-settings: "opsz" 14;
+    letter-spacing: -0.005em;
+  }
+  .topbar-mark a { color: inherit; text-decoration: none; }
+  .topbar-mark em { font-style: italic; font-weight: 400; }
+  .topbar-nav {
+    display: flex;
+    gap: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .topbar-nav a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+  .topbar-nav a:hover { color: var(--oxblood); }
+  .topbar-nav a.active { color: var(--oxblood); }
+  @media (max-width: 600px) { .topbar-nav { display: none; } }
+  
+  .mobile-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 24px; height: 20px; position: relative; flex-shrink: 0;
+  }
+  .mobile-toggle span {
+    display: block; width: 100%; height: 1.5px; background: var(--ink);
+    position: absolute; left: 0; transition: transform 0.25s ease, top 0.25s ease;
+  }
+  .mobile-toggle span:first-child { top: 4px; }
+  .mobile-toggle span:last-child { top: 14px; }
+  .menu-open .mobile-toggle span:first-child { top: 9px; transform: rotate(45deg); }
+  .menu-open .mobile-toggle span:last-child { top: 9px; transform: rotate(-45deg); }
+  @media (max-width: 600px) { .mobile-toggle { display: block; } }
+  .mobile-nav {
+    display: none; flex-direction: column; padding: 24px 32px 32px;
+    border-bottom: 1px solid var(--rule-soft);
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase; gap: 20px;
+  }
+  .mobile-nav a { color: var(--ink-soft); text-decoration: none; }
+  .mobile-nav a:hover { color: var(--oxblood); }
+  .menu-open .mobile-nav { display: flex; }
+  
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--oxblood);
+  }
+  
+  /* About layout */
+  .about-hero {
+    padding: 100px 0 88px;
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+  
+  @media (min-width: 760px) {
+    .about-grid {
+      grid-template-columns: 1fr 340px;
+      gap: 80px;
+      align-items: start;
+    }
+  }
+  
+  .about-hero h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    margin-top: 28px;
+    margin-bottom: 40px;
+    max-width: 14ch;
+  }
+  .about-hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--oxblood-bright);
+  }
+  
+  .about-body p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 24px;
+    max-width: 580px;
+  }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-body em { font-style: italic; }
+  
+  .about-photo {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid var(--rule-soft);
+  }
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85) contrast(1.02);
+  }
+  
+  /* Credentials */
+  section {
+    padding: 88px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 48px;
+  }
+  .section-label-num {
+    color: var(--oxblood);
+    margin-right: 12px;
+  }
+  
+  .creds-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 720px;
+  }
+  
+  @media (min-width: 600px) {
+    .creds-grid { grid-template-columns: 200px 1fr; }
+  }
+  
+  .cred {
+    display: contents;
+  }
+  
+  .cred-category {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    padding: 16px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .cred-list {
+    padding: 16px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .cred:last-child .cred-category,
+  .cred:last-child .cred-list {
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  
+  .cred-item {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .cred-item:last-child { margin-bottom: 0; }
+  .cred-item em { font-style: italic; color: var(--ink); }
+  
+  /* CTA */
+  .closing {
+    padding: 120px 0 64px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .closing-text {
+    font-size: clamp(26px, 3.8vw, 38px);
+    font-weight: 400; line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 72;
+    max-width: 22ch; margin-bottom: 48px;
+  }
+  .closing-text em { font-style: italic; color: var(--oxblood-bright); }
+  .closing-cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--paper); background: var(--oxblood);
+    text-decoration: none; padding: 18px 28px;
+    border: 1px solid var(--oxblood);
+    transition: background 0.2s ease;
+  }
+  .closing-cta::after { content: "→"; font-family: 'Fraunces', serif; font-size: 16px; letter-spacing: 0; }
+  .closing-cta:hover { background: var(--oxblood-deep); }
+  
+  /* Footer */
+  footer {
+    padding: 88px 0 56px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .foot-grid {
+    display: grid; gap: 48px; grid-template-columns: 1fr; align-items: end;
+  }
+  @media (min-width: 760px) { .foot-grid { grid-template-columns: 1fr auto; } }
+  .foot-note { font-size: 14px; line-height: 1.6; color: var(--ink-soft); max-width: 36ch; }
+  .foot-note em { font-style: italic; color: var(--ink); }
+  .signature { text-align: right; }
+  .signature-name { display: block; margin-bottom: 12px; text-align: right; }
+  .signature-name img {
+    height: 48px; width: auto; display: inline-block;
+    filter: brightness(0) saturate(100%) invert(16%) sepia(42%) saturate(1636%) hue-rotate(338deg) brightness(92%) contrast(89%);
+  }
+  .signature-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  ::selection { background: var(--oxblood); color: var(--paper); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-mark"><a href="/">The Launch <em>by Leah</em></a></div>
+  <nav class="topbar-nav">
+    <a href="/#work">Work</a>
+    <a href="/#process">Process</a>
+    <a href="/packages">Packages</a>
+    <a href="/about" class="active">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <button class="mobile-toggle" aria-label="Menu" onclick="document.body.classList.toggle('menu-open')">
+    <span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav">
+  <a href="/#work">Work</a>
+  <a href="/#process">Process</a>
+  <a href="/packages">Packages</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+</nav>
+
+<div class="about-hero">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow">About</div>
+        <h1>Hi, I'm <em>Leah</em>.</h1>
+        <div class="about-body">
+          <p>I've spent 25 years in tech — VP of Product, CPO, CPTO at startups, scale-ups, Amazon, and Google. I know how to build things that work.</p>
+          <p>I'm also a certified coach. ICF PCC, Certified Wayfinder Life Coach through MarthaBeck.com, Reiki Level II, EFT Tapping certification in progress, and a graduate of Witch School with Emma Griffin. I know how to sit with someone while they figure out what they're trying to say.</p>
+          <p>The Launch came from noticing that the practitioners in my world — coaches, healers, readers, somatic workers — kept getting stuck in the same place. They knew what they did. They just couldn't get it onto a page and into the world. The bottleneck was never technical. <em>It was the crossing.</em></p>
+          <p>So I started building. First my own site, then a friend's, then a few more. Now it's a small studio — one to three builds a month, by appointment. I do the coaching work that helps people get clear, and then I build the thing that puts that clarity into public view.</p>
+        </div>
+      </div>
+      <div class="about-photo">
+        <img src="/IMG_7766.JPG" alt="Leah Farmer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label"><span class="section-label-num">01</span>Credentials & training</div>
+    
+    <div class="creds-grid">
+      <div class="cred">
+        <div class="cred-category">Tech</div>
+        <div class="cred-list">
+          <div class="cred-item"><em>25 years</em> in technology</div>
+          <div class="cred-item">VP Product, CPO, CPTO at startups and scale-ups</div>
+          <div class="cred-item">Amazon, Google</div>
+        </div>
+      </div>
+      <div class="cred">
+        <div class="cred-category">Coaching</div>
+        <div class="cred-list">
+          <div class="cred-item"><em>ICF PCC</em> — Professional Certified Coach</div>
+          <div class="cred-item">Certified Wayfinder Life Coach via MarthaBeck.com</div>
+        </div>
+      </div>
+      <div class="cred">
+        <div class="cred-category">Energetics</div>
+        <div class="cred-list">
+          <div class="cred-item">Reiki Level II — Usui Shiki Ryoho</div>
+          <div class="cred-item">EFT Tapping certification <em>(in progress)</em></div>
+          <div class="cred-item">Witch School with Emma Griffin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="closing-text">Want to work together? <em>Let's start</em>.</p>
+    <a href="https://calendly.com/lfcoaching/thelaunch" class="closing-cta">Book a call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-note">
+        <p>The Launch is a small side studio. <em>One to three builds a month, by appointment.</em> A project of <a href="https://leahfarmer.com" style="color: var(--oxblood); text-decoration: none; border-bottom: 1px solid var(--oxblood);">Leah Farmer</a>.</p>
+      </div>
+      <div class="signature">
+        <div class="signature-name"><img src="/First_Name_Signature.png" alt="Leah"></div>
+        <div class="signature-meta">leahfarmer.com · Est. 2025</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
