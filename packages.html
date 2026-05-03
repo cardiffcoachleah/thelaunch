@@ -197,8 +197,7 @@
   }
   
   @media (min-width: 760px) {
-    .packages { grid-template-columns: 1fr 1fr 1fr; }
-    .package-featured { grid-column: auto; display: block; }
+    .packages { grid-template-columns: 1fr; max-width: 680px; }
   }
   
   .package {
@@ -209,15 +208,6 @@
   
   .package-featured {
     border-color: var(--oxblood);
-    position: relative;
-  }
-  
-  @media (min-width: 760px) {
-    .package-featured {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-    }
   }
   
   .package-badge {
@@ -549,7 +539,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-note">
-        <p style="font-size: 16px; font-weight: 500; margin-bottom: 8px;">The Launch <em>by Leah</em></p>
+        <p style="font-size: 16px; font-weight: 500; margin-bottom: 8px;">The Launch <em style="color: var(--oxblood);">by Leah</em></p>
         <p><em>One to three builds a month, by appointment.</em></p>
       </div>
       <div class="signature">
