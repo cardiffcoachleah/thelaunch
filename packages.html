@@ -192,22 +192,27 @@
   /* Package cards */
   .packages {
     display: grid;
-    gap: 48px;
+    gap: 36px;
     grid-template-columns: 1fr;
   }
   
   @media (min-width: 760px) {
-    .packages { grid-template-columns: 1fr; max-width: 680px; }
+    .packages { grid-template-columns: 1fr; max-width: 840px; }
   }
   
   .package {
     padding: 48px 40px;
     border: 1px solid var(--rule);
-    background: var(--paper);
+    background: var(--paper-soft);
   }
   
   .package-featured {
     border-color: var(--oxblood);
+    background: var(--paper-deep);
+  }
+  
+  .package:last-child {
+    background: var(--paper);
   }
   
   .package-badge {
