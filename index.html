@@ -144,6 +144,12 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     gap: 20px;
+    background: var(--paper);
+    position: fixed;
+    top: 77px;
+    left: 0;
+    right: 0;
+    z-index: 99;
   }
   
   .mobile-nav a {
@@ -491,18 +497,28 @@
   }
   
   .step {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     padding: 40px 0;
     border-top: 1px solid var(--rule-soft);
-    align-items: start;
+  }
+  
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
   }
   
   @media (min-width: 760px) {
     .step {
+      display: grid;
       grid-template-columns: 60px 200px 1fr;
       gap: 48px;
+      align-items: start;
+    }
+    .step-header {
+      display: contents;
     }
   }
   
@@ -850,8 +866,8 @@
     
     <div class="process-list">
       <div class="step">
-        <span class="step-num">01</span>
-        <h3 class="step-name"><em>Clarity</em></h3>
+        <div class="step-header"><span class="step-num">01</span>
+        <h3 class="step-name"><em>Clarity</em></h3></div>
         <div class="step-body">
           <p class="step-desc">Before anything gets built, we figure out what you actually want to say. This is coaching, not just intake — we talk about your work, your people, and where the stuckness lives.</p>
           <div class="step-details">
@@ -872,8 +888,8 @@
         </div>
       </div>
       <div class="step">
-        <span class="step-num">02</span>
-        <h3 class="step-name"><em>Form</em></h3>
+        <div class="step-header"><span class="step-num">02</span>
+        <h3 class="step-name"><em>Form</em></h3></div>
         <div class="step-body">
           <p class="step-desc">The work starts to take shape. I go away with everything from our clarity session and come back with options — then we plan the bones of the site together.</p>
           <div class="step-details">
@@ -893,8 +909,8 @@
         </div>
       </div>
       <div class="step">
-        <span class="step-num">03</span>
-        <h3 class="step-name"><em>Build</em></h3>
+        <div class="step-header"><span class="step-num">03</span>
+        <h3 class="step-name"><em>Build</em></h3></div>
         <div class="step-body">
           <p class="step-desc">I build the site. You can write your own content, we can write it together, or I can write it for you. Then we walk through it page by page and refine until it feels right.</p>
           <div class="step-details">
@@ -914,8 +930,8 @@
         </div>
       </div>
       <div class="step">
-        <span class="step-num">04</span>
-        <h3 class="step-name"><em>Launch</em></h3>
+        <div class="step-header"><span class="step-num">04</span>
+        <h3 class="step-name"><em>Launch</em></h3></div>
         <div class="step-body">
           <p class="step-desc">We sign off, pick a date, and put your work into the world. After that, I'm here if you need me — small updates, fixes, the things that come up as your practice grows.</p>
           <div class="step-details">

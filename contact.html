@@ -122,12 +122,23 @@
     gap: 80px;
   }
   
+  .contact-main {
+    order: 2;
+  }
+  
+  .contact-info {
+    order: 1;
+    padding-top: 0;
+  }
+  
   @media (min-width: 760px) {
     .contact-grid {
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
     }
+    .contact-main { order: 1; }
+    .contact-info { order: 2; padding-top: 80px; }
   }
   
   .contact-page h1 {
@@ -209,10 +220,7 @@
   }
   .contact-email:hover { opacity: 0.7; }
   
-  /* Right side — what to expect */
-  .contact-info {
-    padding-top: 80px;
-  }
+  /* Right side — what to expect - styles handled in grid above */
   
   .info-block {
     margin-bottom: 48px;
@@ -313,7 +321,7 @@
 <div class="contact-page">
   <div class="wrap">
     <div class="contact-grid">
-      <div>
+      <div class="contact-main">
         <div class="eyebrow">Get in touch</div>
         <h1>Let's <em>talk</em>.</h1>
         <p class="contact-intro">The best way to start is a free 30-minute discovery call. No pitch, no pressure — just a conversation about where you are and what you're looking for.</p>
