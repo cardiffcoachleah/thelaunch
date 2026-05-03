@@ -119,17 +119,13 @@
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 80px;
+    gap: 56px;
   }
   
-  .contact-main {
-    order: 2;
-  }
-  
-  .contact-info {
-    order: 1;
-    padding-top: 0;
-  }
+  /* Mobile order: hero (1), call info (2), email (3) */
+  .contact-hero { order: 1; }
+  .contact-info { order: 2; padding-top: 0; }
+  .contact-alt { order: 3; padding-top: 24px; border-top: 1px solid var(--rule-soft); }
   
   @media (min-width: 760px) {
     .contact-grid {
@@ -137,8 +133,10 @@
       gap: 80px;
       align-items: start;
     }
-    .contact-main { order: 1; }
-    .contact-info { order: 2; padding-top: 80px; }
+    /* Desktop: hero top-left, email bottom-left, info spans right */
+    .contact-hero { order: 1; grid-column: 1; }
+    .contact-alt { order: 3; grid-column: 1; padding-top: 48px; border-top: 1px solid var(--rule-soft); }
+    .contact-info { order: 2; grid-column: 2; grid-row: 1 / 4; padding-top: 80px; }
   }
   
   .contact-page h1 {
@@ -220,7 +218,7 @@
   }
   .contact-email:hover { opacity: 0.7; }
   
-  /* Right side — what to expect - styles handled in grid above */
+  /* Info blocks */
   
   .info-block {
     margin-bottom: 48px;
@@ -321,17 +319,11 @@
 <div class="contact-page">
   <div class="wrap">
     <div class="contact-grid">
-      <div class="contact-main">
+      <div class="contact-hero">
         <div class="eyebrow">Get in touch</div>
         <h1>Let's <em>talk</em>.</h1>
         <p class="contact-intro">The best way to start is a free 30-minute discovery call. No pitch, no pressure — just a conversation about where you are and what you're looking for.</p>
         <a href="https://calendly.com/lfcoaching/thelaunch" class="contact-cta-primary">Book a discovery call</a>
-        
-        <div class="contact-alt">
-          <h2>Prefer email?</h2>
-          <p>If you'd rather write than call, send me a note. Tell me a bit about your work and what you're thinking about — I'll get back to you within a day or two.</p>
-          <a href="mailto:leah@leahfarmer.com" class="contact-email">leah@leahfarmer.com</a>
-        </div>
       </div>
       
       <div class="contact-info">
@@ -362,6 +354,12 @@
           <div class="info-label">Response time</div>
           <p>I aim to reply to emails within 1–2 business days. If you book a call, you'll get a confirmation immediately.</p>
         </div>
+      </div>
+      
+      <div class="contact-alt">
+        <h2>Prefer email?</h2>
+        <p>If you'd rather write than call, send me a note. Tell me a bit about your work and what you're thinking about — I'll get back to you within a day or two.</p>
+        <a href="mailto:leah@leahfarmer.com" class="contact-email">leah@leahfarmer.com</a>
       </div>
     </div>
   </div>
