@@ -289,6 +289,37 @@
   .for-text p:last-child { margin-bottom: 0; }
   .for-text em { font-style: italic; }
   
+  .for-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  @media (min-width: 760px) {
+    .for-grid {
+      grid-template-columns: 1fr 320px;
+      gap: 64px;
+      align-items: start;
+    }
+  }
+  
+  .for-image {
+    display: none;
+  }
+  
+  @media (min-width: 760px) {
+    .for-image {
+      display: block;
+      padding-top: 8px;
+    }
+  }
+  
+  .for-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
   .for-list {
     margin-top: 48px;
     display: grid;
@@ -692,26 +723,33 @@
       <div class="section-label"><span class="section-label-num">01</span>Who it's for</div>
       <h2 class="section-heading">For the practitioner standing <em>at the edge</em> of going public.</h2>
     </div>
-    <div class="for-text">
-      <p>I'm Leah. I built my own coaching practice from scratch — and I know what it feels like to sit on work you believe in, not quite ready to put it out there. The overthinking, the almost-launching, the gap between knowing what you do and being able to say it publicly. I've been in that place.</p>
-      <p>Now, alongside my work in tech and coaching, I run a small studio building websites for people whose hardest part isn't the technical execution — it's crossing that threshold. If you've been certified for a year and still don't have a site. If you've been seeing clients privately and you're ready to make it public. If you keep almost-launching and not quite. <em>This is for you.</em></p>
-    </div>
-    <div class="for-list">
-      <div class="for-item">
-        <span class="for-item-num">01</span>
-        <span class="for-item-name">Coaches</span>
+    <div class="for-grid">
+      <div>
+        <div class="for-text">
+          <p>I'm Leah. I built my own coaching practice from scratch — and I know what it feels like to sit on work you believe in, not quite ready to put it out there. The overthinking, the almost-launching, the gap between knowing what you do and being able to say it publicly. I've been in that place.</p>
+          <p>Now, alongside my work in tech and coaching, I run a small studio building websites for people whose hardest part isn't the technical execution — it's crossing that threshold. If you've been certified for a year and still don't have a site. If you've been seeing clients privately and you're ready to make it public. If you keep almost-launching and not quite. <em>This is for you.</em></p>
+        </div>
+        <div class="for-list">
+          <div class="for-item">
+            <span class="for-item-num">01</span>
+            <span class="for-item-name">Coaches</span>
+          </div>
+          <div class="for-item">
+            <span class="for-item-num">02</span>
+            <span class="for-item-name">Somatic practitioners</span>
+          </div>
+          <div class="for-item">
+            <span class="for-item-num">03</span>
+            <span class="for-item-name">Witches &amp; tarot readers</span>
+          </div>
+          <div class="for-item">
+            <span class="for-item-num">04</span>
+            <span class="for-item-name">Energy healers &amp; mediums</span>
+          </div>
+        </div>
       </div>
-      <div class="for-item">
-        <span class="for-item-num">02</span>
-        <span class="for-item-name">Somatic practitioners</span>
-      </div>
-      <div class="for-item">
-        <span class="for-item-num">03</span>
-        <span class="for-item-name">Witches &amp; tarot readers</span>
-      </div>
-      <div class="for-item">
-        <span class="for-item-num">04</span>
-        <span class="for-item-name">Energy healers &amp; mediums</span>
+      <div class="for-image">
+        <img src="/doorway.png" alt="An oxblood door, slightly open, in a warm adobe wall">
       </div>
     </div>
   </div>
