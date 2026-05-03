@@ -54,6 +54,10 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--rule-soft);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 100;
   }
   
   .topbar-mark {
@@ -116,6 +120,10 @@
     flex-direction: column;
     padding: 24px 32px 32px;
     border-bottom: 1px solid var(--rule-soft);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 100;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     letter-spacing: 0.18em;
@@ -164,7 +172,7 @@
   
   /* Sections */
   section {
-    padding: 88px 0;
+    padding: 72px 0;
     border-top: 1px solid var(--rule-soft);
   }
   
@@ -542,11 +550,11 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-note">
-        <p>The Launch is a small side studio. <em>One to three builds a month, by appointment.</em> A project of <a href="https://leahfarmer.com" style="color: var(--oxblood); text-decoration: none; border-bottom: 1px solid var(--oxblood);">Leah Farmer</a>.</p>
+        <p><em>One to three builds a month, by appointment.</em></p>
       </div>
       <div class="signature">
         <div class="signature-name"><img src="/First_Name_Signature.png" alt="Leah"></div>
-        <div class="signature-meta">leahfarmer.com · Est. 2025</div>
+        <div class="signature-meta"><a href="https://leahfarmer.com" style="color: var(--ink-faint); text-decoration: none; border-bottom: 1px solid var(--ink-faint);">leahfarmer.com</a> · Est. 2025</div>
       </div>
     </div>
   </div>

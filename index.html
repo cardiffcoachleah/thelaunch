@@ -58,6 +58,10 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--rule-soft);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 100;
   }
   
   .topbar-mark {
@@ -165,7 +169,7 @@
   }
   
   .hero {
-    padding: 120px 0 100px;
+    padding: 100px 0 64px;
   }
   
   .hero-eyebrow {
@@ -225,7 +229,7 @@
   
   /* Section frame */
   section {
-    padding: 88px 0;
+    padding: 72px 0;
     border-top: 1px solid var(--rule-soft);
   }
   
@@ -233,7 +237,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
   }
   
   @media (min-width: 760px) {
@@ -356,147 +360,18 @@
     position: relative;
     overflow: hidden;
     transition: transform 0.4s ease;
+    display: block;
+  }
+  
+  .work-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
   }
   
   .work:hover .work-frame {
     transform: translateY(-4px);
-  }
-  
-  .frame-needapeptalk {
-    background: linear-gradient(135deg, #E8DFD0 0%, #DCD3C5 100%);
-  }
-  .frame-needapeptalk::before {
-    content: "";
-    position: absolute;
-    top: 24%;
-    left: 12%;
-    right: 12%;
-    height: 6px;
-    background: var(--oxblood);
-    opacity: 0.7;
-  }
-  .frame-needapeptalk::after {
-    content: "";
-    position: absolute;
-    top: 38%;
-    left: 12%;
-    width: 64%;
-    height: 2px;
-    background: var(--ink);
-    opacity: 0.4;
-    box-shadow:
-      0 8px 0 rgba(74, 58, 42, 0.25),
-      0 16px 0 rgba(74, 58, 42, 0.18),
-      0 24px 0 rgba(74, 58, 42, 0.12);
-  }
-  
-  .frame-wild369 {
-    background: radial-gradient(ellipse at 70% 30%, #DCD3C5 0%, #C9BFA8 100%);
-  }
-  .frame-wild369::before {
-    content: "★";
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 28px;
-    color: var(--oxblood);
-    opacity: 0.55;
-  }
-  .frame-wild369::after {
-    content: "";
-    position: absolute;
-    bottom: 28%;
-    left: 18%;
-    right: 18%;
-    height: 1px;
-    background: var(--ink);
-    opacity: 0.3;
-    box-shadow:
-      0 -10px 0 rgba(74, 58, 42, 0.18),
-      0 -20px 0 rgba(74, 58, 42, 0.12);
-  }
-  
-  .frame-katie {
-    background: linear-gradient(180deg, #ECE5D8 0%, #DCD3C5 100%);
-  }
-  .frame-katie::before {
-    content: "";
-    position: absolute;
-    top: 22%;
-    left: 14%;
-    width: 38%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: rgba(107, 44, 44, 0.18);
-  }
-  .frame-katie::after {
-    content: "";
-    position: absolute;
-    top: 30%;
-    right: 14%;
-    width: 28%;
-    height: 2px;
-    background: var(--ink);
-    opacity: 0.35;
-    box-shadow:
-      0 10px 0 rgba(74, 58, 42, 0.22),
-      0 18px 0 rgba(74, 58, 42, 0.15),
-      0 26px 0 rgba(74, 58, 42, 0.10);
-  }
-  
-  .frame-leahfarmer {
-    background: linear-gradient(160deg, #DCD3C5 0%, #C9BFA8 100%);
-  }
-  .frame-leahfarmer::before {
-    content: "";
-    position: absolute;
-    top: 20%;
-    left: 14%;
-    width: 50%;
-    height: 4px;
-    background: var(--ink);
-    opacity: 0.45;
-  }
-  .frame-leahfarmer::after {
-    content: "";
-    position: absolute;
-    bottom: 18%;
-    left: 14%;
-    right: 14%;
-    height: 1px;
-    background: var(--oxblood);
-    opacity: 0.6;
-    box-shadow:
-      0 -10px 0 rgba(74, 58, 42, 0.20),
-      0 -20px 0 rgba(74, 58, 42, 0.13);
-  }
-  
-  .frame-angela {
-    background: linear-gradient(145deg, #ECE5D8 0%, #E0D6C6 50%, #D4C9B8 100%);
-  }
-  .frame-angela::before {
-    content: "";
-    position: absolute;
-    top: 20%;
-    right: 16%;
-    width: 32%;
-    aspect-ratio: 0.75;
-    border: 1px solid rgba(107, 44, 44, 0.25);
-  }
-  .frame-angela::after {
-    content: "";
-    position: absolute;
-    top: 32%;
-    left: 14%;
-    width: 40%;
-    height: 2px;
-    background: var(--ink);
-    opacity: 0.3;
-    box-shadow:
-      0 10px 0 rgba(74, 58, 42, 0.2),
-      0 20px 0 rgba(74, 58, 42, 0.14),
-      0 30px 0 rgba(74, 58, 42, 0.08);
   }
   
   .work-meta {
@@ -802,7 +677,7 @@
   <a href="/contact">Contact</a>
 </nav>
 
-<section class="hero" style="border-top: none; padding-top: 120px;">
+<section class="hero" style="border-top: none; padding-top: 100px;">
   <div class="wrap">
     <div class="eyebrow hero-eyebrow">A small studio · By appointment</div>
     <h1>The Launch <em>by Leah</em>.</h1>
@@ -852,7 +727,7 @@
     
     <div class="portfolio-grid">
       <article class="work">
-        <div class="work-frame frame-angela"></div>
+        <a href="https://angelawebbsite.vercel.app/" class="work-frame"><img src="/angela-screenshot.jpg" alt="Angela Webb coaching website"></a>
         <div class="work-meta">
           <h3 class="work-name">Angela <em>Webb</em></h3>
           <span class="work-year">2025</span>
@@ -869,7 +744,7 @@
       </article>
       
       <article class="work">
-        <div class="work-frame frame-katie"></div>
+        <a href="https://enliven-coaching.vercel.app/" class="work-frame"><img src="/katie-screenshot.jpg" alt="Enliven Coaching website"></a>
         <div class="work-meta">
           <h3 class="work-name"><em>Enliven</em> Coaching</h3>
           <span class="work-year">2026</span>
@@ -888,7 +763,7 @@
       </article>
       
       <article class="work">
-        <div class="work-frame frame-leahfarmer"></div>
+        <a href="https://leahfarmer.com" class="work-frame"><img src="/leahfarmer-screenshot.jpg" alt="Leah Farmer coaching website"></a>
         <div class="work-meta">
           <h3 class="work-name">Leah <em>Farmer</em></h3>
           <span class="work-year">2024</span>
@@ -907,7 +782,7 @@
       </article>
       
       <article class="work">
-        <div class="work-frame frame-needapeptalk"></div>
+        <a href="https://needapeptalk.com" class="work-frame"><img src="/needapeptalk-screenshot.jpg" alt="Need a Pep Talk website"></a>
         <div class="work-meta">
           <h3 class="work-name">Need a <em>Pep Talk</em></h3>
           <span class="work-year">2025</span>
@@ -1037,11 +912,11 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-note">
-        <p>The Launch is a small side studio. <em>One to three builds a month, by appointment.</em> A project of <a href="https://leahfarmer.com" style="color: var(--oxblood); text-decoration: none; border-bottom: 1px solid var(--oxblood);">Leah Farmer</a>.</p>
+        <p><em>One to three builds a month, by appointment.</em></p>
       </div>
       <div class="signature">
-        <div class="signature-name"><img src="First_Name_Signature.png" alt="Leah"></div>
-        <div class="signature-meta">leahfarmer.com · Est. 2025</div>
+        <div class="signature-name"><img src="/First_Name_Signature.png" alt="Leah"></div>
+        <div class="signature-meta"><a href="https://leahfarmer.com" style="color: var(--ink-faint); text-decoration: none; border-bottom: 1px solid var(--ink-faint);">leahfarmer.com</a> · Est. 2025</div>
       </div>
     </div>
   </div>
