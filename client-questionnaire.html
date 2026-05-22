@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before We Build — The Launch by Leah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4EFE8;
+    --paper-soft: #ECE5D8;
+    --paper-deep: #DCD3C5;
+    
+    --ink: #4A3A2A;
+    --ink-soft: #6F5E4D;
+    --ink-faint: #9A8C7C;
+    
+    --oxblood: #6B2C2C;
+    --oxblood-bright: #8A3838;
+    --oxblood-deep: #4F1F1F;
+    
+    --rule: rgba(74, 58, 42, 0.18);
+    --rule-soft: rgba(74, 58, 42, 0.10);
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt";
+    font-variation-settings: "opsz" 14, "SOFT" 50;
+  }
+  
+  ::selection {
+    background: var(--oxblood);
+    color: var(--paper);
+  }
+  
+  /* Top bar */
+  .topbar {
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  
+  .topbar-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-variation-settings: "opsz" 14;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  
+  .topbar-mark em { font-style: italic; font-weight: 400; color: var(--oxblood); }
+  
+  .topbar-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  
+  /* Layout */
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 100px 0 80px;
+  }
+  
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin-bottom: 32px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    margin-bottom: 40px;
+    max-width: 16ch;
+    color: var(--ink);
+  }
+  
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--oxblood-bright);
+  }
+  
+  .hero-intro {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 540px;
+  }
+  
+  .hero-intro p { margin-bottom: 16px; }
+  .hero-intro p:last-child { margin-bottom: 0; }
+  .hero-intro em { font-style: italic; color: var(--ink); }
+  
+  /* Instructions */
+  .instructions {
+    padding: 48px 0;
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+    margin-bottom: 0;
+  }
+  
+  .instructions-heading {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+  
+  .instructions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .instruction {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .instruction:first-child { border-top: none; }
+  
+  .instruction-marker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--oxblood);
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+  
+  .instruction-text {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  
+  /* Sections */
+  .question-section {
+    padding: 72px 0 64px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--oxblood);
+    flex-shrink: 0;
+  }
+  
+  .section-title {
+    font-size: clamp(26px, 4vw, 34px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 72;
+    color: var(--ink);
+  }
+  
+  .section-title em {
+    font-style: italic;
+    color: var(--oxblood-bright);
+  }
+  
+  /* Questions */
+  .question {
+    padding: 32px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .question:last-child {
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  
+  .question-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+  
+  .question-text {
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink);
+    font-variation-settings: "opsz" 24;
+    max-width: 540px;
+  }
+  
+  .question-text em {
+    font-style: italic;
+  }
+  
+  .question-hint {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-faint);
+    font-style: italic;
+    max-width: 480px;
+  }
+  
+  .question-answer {
+    margin-top: 20px;
+    width: 100%;
+    min-height: 120px;
+    padding: 16px 20px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    font-variation-settings: "opsz" 14;
+  }
+  
+  .question-answer:focus {
+    border-color: var(--oxblood);
+    background: rgba(255, 255, 255, 0.65);
+  }
+  
+  .question-answer::placeholder {
+    color: var(--ink-faint);
+    font-style: italic;
+    opacity: 0.7;
+  }
+  
+  /* Inspiration section */
+  .inspiration-section {
+    padding: 72px 0 64px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .inspiration-intro {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 48px;
+  }
+  
+  .inspiration-intro em { font-style: italic; color: var(--ink); }
+  
+  .inspiration-group {
+    padding: 32px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .inspiration-group:last-of-type {
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  
+  .inspiration-group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin-bottom: 8px;
+  }
+  
+  .inspiration-group-title {
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink);
+    font-variation-settings: "opsz" 24;
+    margin-bottom: 8px;
+  }
+  
+  .inspiration-group-hint {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-faint);
+    font-style: italic;
+    max-width: 480px;
+    margin-bottom: 20px;
+  }
+  
+  .inspiration-group .question-answer {
+    margin-top: 0;
+  }
+  
+  /* Submit section */
+  .submit-section {
+    padding: 72px 0 48px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .submit-text {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 12px;
+  }
+  
+  .submit-text em { font-style: italic; color: var(--ink); }
+  
+  .submit-note {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-faint);
+    font-style: italic;
+    max-width: 480px;
+    margin-bottom: 40px;
+  }
+
+  .submit-name {
+    margin-bottom: 40px;
+  }
+
+  .submit-name label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+
+  .submit-name input {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 20px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    font-variation-settings: "opsz" 14;
+  }
+
+  .submit-name input:focus {
+    border-color: var(--oxblood);
+    background: rgba(255, 255, 255, 0.65);
+  }
+
+  .submit-name input::placeholder {
+    color: var(--ink-faint);
+    font-style: italic;
+    opacity: 0.7;
+  }
+  
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--oxblood);
+    text-decoration: none;
+    padding: 18px 28px;
+    border: 1px solid var(--oxblood);
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .submit-btn::after {
+    content: "→";
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+  
+  .submit-btn:hover { background: var(--oxblood-deep); }
+
+  .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .submit-btn:disabled:hover {
+    background: var(--oxblood);
+  }
+
+  .submit-error {
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--oxblood);
+    display: none;
+  }
+
+  .closing-sig {
+    margin-top: 32px;
+  }
+  
+  .closing-sig-name {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--oxblood);
+    margin-bottom: 4px;
+  }
+  
+  .closing-sig-email {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--ink-faint);
+  }
+  
+  .closing-sig-email a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-soft);
+    transition: color 0.2s ease;
+  }
+  
+  .closing-sig-email a:hover { color: var(--oxblood); }
+
+  /* ---- Confirmation view ---- */
+  .confirmation {
+    display: none;
+  }
+
+  .confirmation.is-visible {
+    display: block;
+  }
+
+  .form-view.is-hidden {
+    display: none;
+  }
+
+  .conf-hero {
+    padding: 100px 0 80px;
+  }
+
+  .conf-hero h1 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    margin-bottom: 40px;
+    max-width: 16ch;
+    color: var(--ink);
+  }
+
+  .conf-hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--oxblood-bright);
+  }
+
+  .conf-intro {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 540px;
+  }
+
+  .conf-intro p { margin-bottom: 16px; }
+  .conf-intro p:last-child { margin-bottom: 0; }
+  .conf-intro em { font-style: italic; color: var(--ink); }
+
+  .conf-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .conf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border: 1px solid var(--oxblood);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .conf-btn-primary {
+    color: var(--paper);
+    background: var(--oxblood);
+  }
+
+  .conf-btn-primary:hover {
+    background: var(--oxblood-deep);
+  }
+
+  .conf-btn-secondary {
+    color: var(--oxblood);
+    background: transparent;
+  }
+
+  .conf-btn-secondary:hover {
+    background: rgba(107, 44, 44, 0.06);
+  }
+
+  /* Answers review */
+  .conf-section {
+    padding: 56px 0 48px;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .conf-section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .conf-section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--oxblood);
+    flex-shrink: 0;
+  }
+
+  .conf-section-title {
+    font-size: clamp(22px, 3.5vw, 28px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 72;
+    color: var(--ink);
+  }
+
+  .conf-section-title em {
+    font-style: italic;
+    color: var(--oxblood-bright);
+  }
+
+  .conf-answer-block {
+    padding: 24px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .conf-answer-block:last-child {
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .conf-answer-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+
+  .conf-answer-question {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--ink);
+    font-style: italic;
+    margin-bottom: 12px;
+    max-width: 540px;
+  }
+
+  .conf-answer-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 600px;
+    white-space: pre-wrap;
+  }
+
+  .conf-answer-empty {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-faint);
+  }
+
+  .conf-closing {
+    padding: 56px 0 48px;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .conf-closing-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 540px;
+  }
+
+  .conf-closing-text em { font-style: italic; color: var(--ink); }
+
+  /* Footer */
+  footer {
+    padding: 48px 0 40px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  
+  .foot-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  
+  .foot-text a {
+    color: var(--oxblood);
+    text-decoration: none;
+  }
+  
+  /* Print styles */
+  @media print {
+    body { background: white; }
+    .topbar { border-bottom-color: #ddd; }
+    .conf-actions { display: none; }
+    .conf-answer-block { break-inside: avoid; }
+    .question-answer {
+      border: 1px solid #ccc;
+      min-height: 120px;
+      background: white;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="https://thelaunchbyleah.com" class="topbar-mark">The Launch <em>by Leah</em></a>
+  <span class="topbar-label">Client Questionnaire</span>
+</header>
+
+<!-- ============================================ -->
+<!-- FORM VIEW                                    -->
+<!-- ============================================ -->
+<div class="form-view" id="formView">
+
+<form id="questionnaireForm">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Step 1 · Clarity</div>
+    <h1>Before we <em>build</em>.</h1>
+    <div class="hero-intro">
+      <p>This is the beginning of the work — and it's not about your website yet. It's about getting clear on what you want to say, who you're saying it to, and what's been keeping you from putting it out there.</p>
+      <p>Take your time with these questions. There are no wrong answers. Write what feels true, even if it's messy. <em>The mess is where the good stuff lives.</em></p>
+      <p>Bring this to our 90-minute session and we'll use it as the foundation for everything that comes next.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="instructions">
+    <div class="instructions-heading">How to use this</div>
+    <div class="instructions-list">
+      <div class="instruction">
+        <span class="instruction-marker">01</span>
+        <span class="instruction-text">Find a quiet hour. Pour something good. Let yourself think slowly.</span>
+      </div>
+      <div class="instruction">
+        <span class="instruction-marker">02</span>
+        <span class="instruction-text">Write in your own voice — the way you'd talk to a friend, not a brochure.</span>
+      </div>
+      <div class="instruction">
+        <span class="instruction-marker">03</span>
+        <span class="instruction-text">Skip anything that doesn't resonate. Come back to it later if you want.</span>
+      </div>
+      <div class="instruction">
+        <span class="instruction-marker">04</span>
+        <span class="instruction-text">The inspiration section at the end is just as important as the words — show me what draws you in.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: YOUR WORK -->
+<div class="wrap">
+  <div class="question-section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Your <em>work</em></h2>
+    </div>
+    
+    <div class="question">
+      <div class="question-label">1A</div>
+      <div class="question-text">Tell me about what you do — in the way you'd explain it to someone at a dinner party, not in a pitch.</div>
+      <div class="question-hint">Don't worry about being concise. I want the real version, not the elevator version.</div>
+      <textarea class="question-answer" name="1a_your_work" placeholder="Write here..."></textarea>
+    </div>
+    
+    <div class="question">
+      <div class="question-label">1B</div>
+      <div class="question-text">Who do you work with? Describe the person who walks through your door — or the person you wish would.</div>
+      <div class="question-hint">Think about a specific client, real or imagined. What are they going through when they find you?</div>
+      <textarea class="question-answer" name="1b_your_people" placeholder="Write here..."></textarea>
+    </div>
+    
+    <div class="question">
+      <div class="question-label">1C</div>
+      <div class="question-text">How do people find you right now? And how do you wish they found you?</div>
+      <textarea class="question-answer" name="1c_finding_you" placeholder="Write here..."></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: YOUR VOICE -->
+<div class="wrap">
+  <div class="question-section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Your <em>voice</em></h2>
+    </div>
+    
+    <div class="question">
+      <div class="question-label">2A</div>
+      <div class="question-text">If your website could say one thing to the right person at the right moment, what would it be?</div>
+      <textarea class="question-answer" name="2a_one_thing" placeholder="Write here..."></textarea>
+    </div>
+    
+    <div class="question">
+      <div class="question-label">2B</div>
+      <div class="question-text">What do you <em>not</em> want your site to sound like?</div>
+      <div class="question-hint">The things that make you cringe on other people's sites. The tone that would feel wrong for your work.</div>
+      <textarea class="question-answer" name="2b_not_this" placeholder="Write here..."></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: YOUR VISION -->
+<div class="wrap">
+  <div class="question-section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Your <em>vision</em></h2>
+    </div>
+    
+    <div class="question">
+      <div class="question-label">3A</div>
+      <div class="question-text">What do you want someone to <em>do</em> after visiting your site?</div>
+      <div class="question-hint">Book a call? Send an email? Follow you on Instagram? Buy something? There's no wrong answer — I just need to know where we're sending people.</div>
+      <textarea class="question-answer" name="3a_action" placeholder="Write here..."></textarea>
+    </div>
+    
+    <div class="question">
+      <div class="question-label">3B</div>
+      <div class="question-text">Where do you see your practice in a year?</div>
+      <div class="question-hint">This helps me build something that fits where you're going, not just where you are.</div>
+      <textarea class="question-answer" name="3b_future" placeholder="Write here..."></textarea>
+    </div>
+    
+    <div class="question">
+      <div class="question-label">3C</div>
+      <div class="question-text">What's been keeping you from having a website until now?</div>
+      <div class="question-hint">Be honest. This is useful information — it tells me where the stuckness lives so we can work with it, not around it.</div>
+      <textarea class="question-answer" name="3c_stuckness" placeholder="Write here..."></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: INSPIRATION -->
+<div class="wrap">
+  <div class="inspiration-section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Your <em>inspiration</em></h2>
+    </div>
+    
+    <p class="inspiration-intro">This is where you show me what draws you in. Don't overthink it — if something catches your eye, it belongs here. <em>I'm looking for feel, not specifications.</em></p>
+    
+    <div class="inspiration-group">
+      <div class="inspiration-group-label">4A</div>
+      <div class="inspiration-group-title">Sites you love</div>
+      <div class="inspiration-group-hint">Paste 3–5 links to websites whose feel, look, or vibe speaks to you. They don't have to be in your industry. Just tell me what you like about each one.</div>
+      <textarea class="question-answer" name="4a_sites" placeholder="Paste links and notes here..."></textarea>
+    </div>
+    
+    <div class="inspiration-group">
+      <div class="inspiration-group-label">4B</div>
+      <div class="inspiration-group-title">Images, colors, textures</div>
+      <div class="inspiration-group-hint">Describe or paste links to images, color palettes, textures, or aesthetics you're drawn to. Pinterest boards, Instagram posts, photos on your phone — anything goes.</div>
+      <textarea class="question-answer" name="4b_visuals" placeholder="Paste links, describe images, share Pinterest boards..."></textarea>
+    </div>
+    
+    <div class="inspiration-group">
+      <div class="inspiration-group-label">4C</div>
+      <div class="inspiration-group-title">Existing brand elements</div>
+      <div class="inspiration-group-hint">Do you already have a logo, business name, colors, or fonts you love? A social media presence you want the site to match? List what exists — even if it's just "I like the color green and my business is called [name]."</div>
+      <textarea class="question-answer" name="4c_brand" placeholder="Write here..."></textarea>
+    </div>
+    
+    <div class="inspiration-group">
+      <div class="inspiration-group-label">4D</div>
+      <div class="inspiration-group-title">One feeling</div>
+      <div class="inspiration-group-hint">If someone lands on your site and walks away with one feeling, what do you want it to be?</div>
+      <textarea class="question-answer" name="4d_feeling" placeholder="Write here..."></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- SUBMIT -->
+<div class="wrap">
+  <div class="submit-section">
+    <p class="submit-text">That's everything. Send this to me whenever you're ready — finished or unfinished, polished or messy. <em>We'll use it as the starting point for our session together.</em></p>
+    <p class="submit-note">After you send, you'll see a copy of everything you wrote — save it, print it, or just know it's there.</p>
+    
+    <div class="submit-name">
+      <label for="clientName">Your name</label>
+      <input type="text" id="clientName" name="client_name" placeholder="First name is fine" required>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">Send to Leah</button>
+    <div class="submit-error" id="submitError">Something went wrong — try again, or email your answers to <a href="mailto:leah@leahfarmer.com" style="color: var(--oxblood);">leah@leahfarmer.com</a>.</div>
+
+    <div class="closing-sig" style="margin-top: 48px;">
+      <div class="closing-sig-name">— Leah</div>
+      <div class="closing-sig-email"><a href="mailto:leah@leahfarmer.com">leah@leahfarmer.com</a></div>
+    </div>
+  </div>
+</div>
+
+</form>
+
+</div>
+<!-- END FORM VIEW -->
+
+
+<!-- ============================================ -->
+<!-- CONFIRMATION VIEW                            -->
+<!-- ============================================ -->
+<div class="confirmation" id="confirmationView">
+
+<section class="conf-hero">
+  <div class="wrap">
+    <div class="eyebrow">Received · Thank you</div>
+    <h1>It's <em>on its way</em>.</h1>
+    <div class="conf-intro">
+      <p>I've got everything you wrote — I'll read through it before our session so we can hit the ground running.</p>
+      <p>Below is a copy of your answers. <em>Save or print this page for your records.</em></p>
+    </div>
+    <div class="conf-actions">
+      <button class="conf-btn conf-btn-primary" onclick="window.print()">Print this page</button>
+      <button class="conf-btn conf-btn-secondary" onclick="copyAnswers()">Copy to clipboard</button>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="answersContainer">
+  <!-- Answers are injected here by JavaScript -->
+</div>
+
+<div class="wrap">
+  <div class="conf-closing">
+    <p class="conf-closing-text">There's no rush and no judgment. If you want to add anything before our session, just email me. <em>I'm looking forward to it.</em></p>
+    <div class="closing-sig" style="margin-top: 32px;">
+      <div class="closing-sig-name">— Leah</div>
+      <div class="closing-sig-email"><a href="mailto:leah@leahfarmer.com">leah@leahfarmer.com</a></div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- END CONFIRMATION VIEW -->
+
+
+<footer>
+  <div class="wrap">
+    <div class="foot-text"><a href="https://thelaunchbyleah.com">The Launch</a> <em>by Leah</em> · Est. 2025</div>
+  </div>
+</footer>
+
+<script>
+// ---- Question metadata for building the confirmation view ----
+const questions = [
+  { section: 'Your work', sectionNum: '01', items: [
+    { label: '1A', name: '1a_your_work', q: 'Tell me about what you do — in the way you\'d explain it to someone at a dinner party, not in a pitch.' },
+    { label: '1B', name: '1b_your_people', q: 'Who do you work with? Describe the person who walks through your door — or the person you wish would.' },
+    { label: '1C', name: '1c_finding_you', q: 'How do people find you right now? And how do you wish they found you?' },
+  ]},
+  { section: 'Your voice', sectionNum: '02', items: [
+    { label: '2A', name: '2a_one_thing', q: 'If your website could say one thing to the right person at the right moment, what would it be?' },
+    { label: '2B', name: '2b_not_this', q: 'What do you not want your site to sound like?' },
+  ]},
+  { section: 'Your vision', sectionNum: '03', items: [
+    { label: '3A', name: '3a_action', q: 'What do you want someone to do after visiting your site?' },
+    { label: '3B', name: '3b_future', q: 'Where do you see your practice in a year?' },
+    { label: '3C', name: '3c_stuckness', q: 'What\'s been keeping you from having a website until now?' },
+  ]},
+  { section: 'Your inspiration', sectionNum: '04', items: [
+    { label: '4A', name: '4a_sites', q: 'Sites you love' },
+    { label: '4B', name: '4b_visuals', q: 'Images, colors, textures' },
+    { label: '4C', name: '4c_brand', q: 'Existing brand elements' },
+    { label: '4D', name: '4d_feeling', q: 'One feeling' },
+  ]},
+];
+
+// ---- Form submission ----
+const form = document.getElementById('questionnaireForm');
+const submitBtn = document.getElementById('submitBtn');
+const submitError = document.getElementById('submitError');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+  submitError.style.display = 'none';
+
+  const formData = new FormData(form);
+
+  try {
+    // ---- FORMSPREE ENDPOINT ----
+    // Replace YOUR_FORM_ID with your Formspree form ID
+    // Create one at https://formspree.io — free tier allows 50 submissions/month
+    const response = await fetch('https://formspree.io/f/mlgvndbp', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      showConfirmation(formData);
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (err) {
+    // If Formspree fails (or isn't set up yet), still show confirmation
+    // but also show the error message with email fallback
+    submitError.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send to Leah';
+    
+    // Uncomment the line below to show confirmation even on error
+    // (useful during development before Formspree is connected)
+    // showConfirmation(formData);
+  }
+});
+
+// ---- Build and show confirmation ----
+function showConfirmation(formData) {
+  const container = document.getElementById('answersContainer');
+  let html = '';
+
+  questions.forEach(section => {
+    html += `<div class="conf-section">`;
+    html += `<div class="conf-section-header">`;
+    html += `<span class="conf-section-num">${section.sectionNum}</span>`;
+    html += `<h3 class="conf-section-title">${section.section}</h3>`;
+    html += `</div>`;
+
+    section.items.forEach(item => {
+      const answer = formData.get(item.name) || '';
+      html += `<div class="conf-answer-block">`;
+      html += `<div class="conf-answer-label">${item.label}</div>`;
+      html += `<div class="conf-answer-question">${item.q}</div>`;
+      if (answer.trim()) {
+        html += `<div class="conf-answer-text">${escapeHtml(answer)}</div>`;
+      } else {
+        html += `<div class="conf-answer-empty">— skipped —</div>`;
+      }
+      html += `</div>`;
+    });
+
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+
+  // Clear saved draft — it's been sent
+  clearStorage();
+
+  // Switch views
+  document.getElementById('formView').classList.add('is-hidden');
+  document.getElementById('confirmationView').classList.add('is-visible');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---- Copy answers to clipboard ----
+function copyAnswers() {
+  let text = 'BEFORE WE BUILD — THE LAUNCH BY LEAH\n';
+  text += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+
+  const formData = new FormData(form);
+  const name = formData.get('client_name') || '';
+  if (name) text += `From: ${name}\n\n`;
+
+  questions.forEach(section => {
+    text += `${section.sectionNum}  ${section.section.toUpperCase()}\n`;
+    text += '──────────────────────────────\n\n';
+
+    section.items.forEach(item => {
+      const answer = formData.get(item.name) || '';
+      text += `${item.label}  ${item.q}\n`;
+      if (answer.trim()) {
+        text += `${answer}\n`;
+      } else {
+        text += `— skipped —\n`;
+      }
+      text += '\n';
+    });
+  });
+
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.conf-btn-secondary');
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(() => { btn.textContent = original; }, 2000);
+  });
+}
+
+// ---- Auto-save to localStorage ----
+const STORAGE_KEY = 'thelaunch_questionnaire';
+
+function saveToStorage() {
+  const data = {};
+  form.querySelectorAll('textarea, input').forEach(field => {
+    if (field.name) data[field.name] = field.value;
+  });
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (e) {
+    // Storage full or unavailable — silent fail
+  }
+}
+
+function restoreFromStorage() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+    const data = JSON.parse(saved);
+    Object.keys(data).forEach(name => {
+      const field = form.querySelector(`[name="${name}"]`);
+      if (field && data[name]) field.value = data[name];
+    });
+  } catch (e) {
+    // Corrupted data — silent fail
+  }
+}
+
+function clearStorage() {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (e) {
+    // Silent fail
+  }
+}
+
+// Restore on page load
+restoreFromStorage();
+
+// Save as they type (debounced to avoid hammering storage)
+let saveTimer;
+form.addEventListener('input', () => {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveToStorage, 500);
+});
+
+// ---- Utility ----
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+</script>
+
+</body>
+</html>
