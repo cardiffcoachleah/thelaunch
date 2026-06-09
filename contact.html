@@ -4,382 +4,470 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — The Launch by Leah</title>
-<meta name="description" content="Ready to launch? Book a free discovery call or send a note. The Launch by Leah — websites for coaches and practitioners.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F4EFE8;
-    --paper-soft: #ECE5D8;
-    --paper-deep: #DCD3C5;
-    --ink: #4A3A2A;
-    --ink-soft: #6F5E4D;
-    --ink-faint: #9A8C7C;
-    --oxblood: #6B2C2C;
-    --oxblood-bright: #8A3838;
-    --oxblood-deep: #4F1F1F;
-    --rule: rgba(74, 58, 42, 0.18);
-    --rule-soft: rgba(74, 58, 42, 0.10);
+    --ground:       #D8DEE6;
+    --ground-light: #E4E8EE;
+    --ink:          #111820;
+    --ink-soft:     #283040;
+    --ink-faint:    #5A6678;
+    --forest:       #2D4A3E;
+    --forest-light: rgba(45,74,62,0.12);
+    --copper:       #A0685A;
+    --copper-deep:  #7A4E43;
+    --rule:         rgba(17,24,32,0.12);
+    --rule-soft:    rgba(17,24,32,0.07);
   }
-  
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  
+
   body {
     font-family: 'Fraunces', Georgia, serif;
     font-weight: 400;
-    background: var(--paper);
+    background: var(--ground);
     color: var(--ink);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "kern", "liga", "calt";
-    font-variation-settings: "opsz" 14, "SOFT" 50;
-  }
-  
-  .wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  
-  /* Top bar */
-  .topbar {
-    padding: 28px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--rule-soft);
-    position: sticky;
-    top: 0;
-    background: var(--paper);
-    z-index: 100;
-  }
-  .topbar-mark {
-    font-family: 'Fraunces', serif;
-    font-size: 16px; font-weight: 500;
     font-variation-settings: "opsz" 14;
-    letter-spacing: -0.005em;
   }
-  .topbar-mark a { color: inherit; text-decoration: none; }
-  .topbar-mark em { font-style: italic; font-weight: 400; color: var(--oxblood); }
-  .topbar-nav {
-    display: flex; gap: 28px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  }
-  .topbar-nav a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
-  .topbar-nav a:hover { color: var(--oxblood); }
-  .topbar-nav a.active { color: var(--oxblood); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+  /* ── NAV ── */
+  .topbar { padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--rule-soft); }
+  .topbar-mark { display: flex; flex-direction: column; line-height: 1; gap: 1px; text-decoration: none; }
+  .mark-line1 { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+  .mark-line2 { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 300; font-style: italic; color: var(--forest); font-variation-settings: "opsz" 24; }
+  .topbar-nav { display: flex; gap: 32px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .topbar-nav a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+  .topbar-nav a:hover { color: var(--forest); }
+  .topbar-nav a.active { color: var(--forest); border-bottom: 1px solid var(--forest); padding-bottom: 1px; }
   @media (max-width: 600px) { .topbar-nav { display: none; } }
-  
-  .mobile-toggle {
-    display: none; background: none; border: none; cursor: pointer;
-    width: 24px; height: 20px; position: relative; flex-shrink: 0;
-  }
-  .mobile-toggle span {
-    display: block; width: 100%; height: 1.5px; background: var(--ink);
-    position: absolute; left: 0; transition: transform 0.25s ease, top 0.25s ease;
-  }
-  .mobile-toggle span:first-child { top: 4px; }
-  .mobile-toggle span:last-child { top: 14px; }
-  .menu-open .mobile-toggle span:first-child { top: 9px; transform: rotate(45deg); }
-  .menu-open .mobile-toggle span:last-child { top: 9px; transform: rotate(-45deg); }
-  @media (max-width: 600px) { .mobile-toggle { display: block; } }
-  .mobile-nav {
-    display: none; flex-direction: column; padding: 24px 32px 32px;
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding: 72px 0 64px;
     border-bottom: 1px solid var(--rule-soft);
-    position: sticky;
-    top: 0;
-    background: var(--paper);
-    z-index: 100;
-    font-family: 'JetBrains Mono', monospace; font-size: 12px;
-    letter-spacing: 0.18em; text-transform: uppercase; gap: 20px;
   }
-  .mobile-nav a { color: var(--ink-soft); text-decoration: none; }
-  .mobile-nav a:hover { color: var(--oxblood); }
-  .menu-open .mobile-nav { display: flex; }
-  
-  .eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--oxblood);
-  }
-  
-  /* Contact layout */
-  .contact-page {
-    padding: 100px 0 120px;
-  }
-  
-  .contact-grid {
+
+  .page-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 24px; }
+
+  .page-title { font-size: clamp(40px, 6vw, 72px); font-weight: 300; line-height: 1.0; letter-spacing: -0.03em; color: var(--ink); font-variation-settings: "opsz" 144; margin-bottom: 24px; max-width: 16ch; }
+  .page-title em { font-style: italic; color: var(--forest); }
+
+  .page-intro { font-size: 18px; line-height: 1.65; color: var(--ink-soft); max-width: 48ch; font-variation-settings: "opsz" 24; }
+
+  /* ── MAIN CONTENT ── */
+  .contact-body {
+    padding: 72px 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 56px;
+    gap: 64px;
+    align-items: start;
   }
-  
-  /* Mobile order: hero (1), call info (2), email (3) */
-  .contact-hero { order: 1; }
-  .contact-info { order: 2; padding-top: 0; }
-  .contact-alt { order: 3; padding-top: 24px; border-top: 1px solid var(--rule-soft); }
-  
-  @media (min-width: 760px) {
-    .contact-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    /* Desktop: hero top-left, email bottom-left, info spans right */
-    .contact-hero { order: 1; grid-column: 1; }
-    .contact-alt { order: 3; grid-column: 1; padding-top: 48px; border-top: 1px solid var(--rule-soft); }
-    .contact-info { order: 2; grid-column: 2; grid-row: 1 / 4; padding-top: 80px; }
+
+  @media (min-width: 800px) {
+    .contact-body { grid-template-columns: 1fr 1fr; gap: 80px; }
   }
-  
-  .contact-page h1 {
-    font-size: clamp(38px, 6vw, 64px);
+
+  /* ── CALENDLY SIDE ── */
+  .contact-main-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 16px;
+  }
+
+  .contact-heading {
+    font-size: clamp(26px, 3.5vw, 38px);
     font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    font-variation-settings: "opsz" 144, "SOFT" 100;
-    margin-top: 28px;
-    margin-bottom: 40px;
-    max-width: 14ch;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 72;
+    color: var(--ink);
+    margin-bottom: 20px;
+    max-width: 20ch;
   }
-  .contact-page h1 em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--oxblood-bright);
-  }
-  
-  .contact-intro {
-    font-size: 18px;
-    line-height: 1.65;
+
+  .contact-heading em { font-style: italic; color: var(--forest); }
+
+  .contact-desc {
+    font-size: 16px;
+    line-height: 1.75;
     color: var(--ink-soft);
-    max-width: 480px;
-    margin-bottom: 48px;
+    max-width: 44ch;
+    margin-bottom: 32px;
+    font-variation-settings: "opsz" 24;
   }
-  
-  .contact-cta-primary {
+
+  .contact-desc em { font-style: italic; color: var(--ink); }
+
+  .contact-cta {
     display: inline-flex;
     align-items: center;
     gap: 14px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--paper);
-    background: var(--oxblood);
+    color: var(--ground);
+    background: var(--copper);
     text-decoration: none;
-    padding: 18px 28px;
-    border: 1px solid var(--oxblood);
-    transition: background 0.2s ease;
-    margin-bottom: 48px;
+    padding: 16px 24px;
+    transition: background 0.2s;
   }
-  .contact-cta-primary::after {
-    content: "→"; font-family: 'Fraunces', serif;
-    font-size: 16px; letter-spacing: 0;
+
+  .contact-cta:hover { background: var(--copper-deep); }
+  .contact-cta::after { content: "→"; font-family: 'Fraunces', serif; font-size: 15px; letter-spacing: 0; }
+
+  .contact-note {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-faint);
+    margin-top: 16px;
+    line-height: 1.6;
+    font-variation-settings: "opsz" 14;
   }
-  .contact-cta-primary:hover { background: var(--oxblood-deep); }
-  
-  .contact-alt {
-    padding-top: 48px;
+
+  /* ── RIGHT SIDE: what to expect ── */
+  .expect-block {
+    padding-top: 4px;
+  }
+
+  .expect-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 24px;
+  }
+
+  .expect-items { list-style: none; }
+
+  .expect-item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+
+  .expect-item:last-child { border-bottom: 1px solid var(--rule-soft); }
+
+  .expect-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--copper);
+    padding-top: 3px;
+  }
+
+  .expect-text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 24;
+  }
+
+  .expect-text strong {
+    display: block;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 3px;
+    font-size: 16px;
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    padding: 64px 0;
     border-top: 1px solid var(--rule-soft);
   }
-  
-  .contact-alt h2 {
-    font-size: 20px;
+
+  .faq-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  @media (min-width: 800px) {
+    .faq-header { grid-template-columns: 180px 1fr; gap: 80px; align-items: baseline; }
+  }
+
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); padding-top: 6px; }
+  .section-num { color: var(--forest); margin-right: 10px; }
+
+  .faq-heading {
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 72;
+    color: var(--ink);
+  }
+
+  .faq-heading em { font-style: italic; color: var(--forest); }
+
+  .faq-list { list-style: none; }
+
+  .faq-item { border-top: 1px solid var(--rule-soft); }
+  .faq-item:last-child { border-bottom: 1px solid var(--rule-soft); }
+
+  .faq-trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .faq-q {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 16px;
     font-weight: 400;
     font-style: italic;
     color: var(--ink);
-    margin-bottom: 16px;
     font-variation-settings: "opsz" 24;
+    line-height: 1.4;
   }
-  
-  .contact-alt p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin-bottom: 20px;
-  }
-  
-  .contact-email {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    color: var(--oxblood);
-    text-decoration: none;
-    border-bottom: 1px solid var(--oxblood);
-    padding-bottom: 3px;
-    transition: opacity 0.2s ease;
-  }
-  .contact-email:hover { opacity: 0.7; }
-  
-  /* Info blocks */
-  
-  .info-block {
-    margin-bottom: 48px;
-  }
-  .info-block:last-child { margin-bottom: 0; }
-  
-  .info-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    margin-bottom: 16px;
-  }
-  
-  .info-block p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    max-width: 40ch;
-  }
-  
-  .info-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  
-  .info-item {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    padding: 12px 0;
-    border-top: 1px solid var(--rule-soft);
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-  }
-  .info-item:last-child { border-bottom: 1px solid var(--rule-soft); }
-  
-  .info-item-marker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    color: var(--oxblood);
+
+  .faq-icon {
     flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    position: relative;
   }
-  
-  /* Footer */
-  footer {
-    padding: 88px 0 56px;
-    border-top: 1px solid var(--rule-soft);
+
+  .faq-icon::before,
+  .faq-icon::after {
+    content: "";
+    position: absolute;
+    background: var(--forest);
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
   }
-  .foot-grid {
-    display: grid; gap: 48px; grid-template-columns: 1fr; align-items: end;
+
+  .faq-icon::before { width: 12px; height: 1.5px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .faq-icon::after  { width: 1.5px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+  .faq-item.open .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+
+  .faq-body { display: none; padding-bottom: 22px; }
+  .faq-item.open .faq-body { display: block; }
+
+  .faq-a {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 24;
+    max-width: 72ch;
   }
+
+  .faq-a a { color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(45,74,62,0.3); }
+  .faq-a a:hover { border-bottom-color: var(--forest); }
+
+  /* ── FOOTER ── */
+  footer { padding: 64px 0 48px; border-top: 1px solid var(--rule); }
+  .foot-grid { display: grid; gap: 40px; grid-template-columns: 1fr; align-items: end; }
   @media (min-width: 760px) { .foot-grid { grid-template-columns: 1fr auto; } }
-  .foot-note { font-size: 14px; line-height: 1.6; color: var(--ink-soft); max-width: 36ch; }
-  .foot-note em { font-style: italic; color: var(--ink); }
-  .signature { text-align: right; }
-  .signature-name { display: block; margin-bottom: 12px; text-align: right; }
-  .signature-name img {
-    height: 48px; width: auto; display: inline-block;
-    filter: brightness(0) saturate(100%) invert(16%) sepia(42%) saturate(1636%) hue-rotate(338deg) brightness(92%) contrast(89%);
-  }
-  .signature-meta {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--ink-faint);
-  }
-  ::selection { background: var(--oxblood); color: var(--paper); }
+  .foot-note { font-size: 14px; line-height: 1.65; color: var(--ink-faint); max-width: 40ch; }
+  .foot-note em { font-style: italic; color: var(--ink-soft); }
+  .foot-note a { color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(45,74,62,0.2); }
+  .foot-note a:hover { border-bottom-color: var(--forest); }
+  .sig-mark { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+  .sig-top { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+  .sig-rule { width: 64px; height: 1.5px; background: var(--copper); align-self: flex-end; }
+  .sig-by { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; font-style: italic; color: var(--forest); font-variation-settings: "opsz" 48; }
+  .sig-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-top: 4px; }
+
+  ::selection { background: var(--forest); color: var(--ground); }
 </style>
 </head>
 <body>
 
 <header class="topbar">
-  <div class="topbar-mark"><a href="/">The Launch <em>by Leah</em></a></div>
+  <a href="/" class="topbar-mark">
+    <span class="mark-line1">The Launch</span>
+    <span class="mark-line2">by Leah</span>
+  </a>
   <nav class="topbar-nav">
-    <a href="/#work">Work</a>
-    <a href="/#process">Process</a>
+    <a href="/">Work</a>
     <a href="/packages">Packages</a>
     <a href="/about">About</a>
     <a href="/contact" class="active">Contact</a>
   </nav>
-  <button class="mobile-toggle" aria-label="Menu" onclick="document.body.classList.toggle('menu-open')">
-    <span></span><span></span>
-  </button>
 </header>
 
-<nav class="mobile-nav">
-  <a href="/#work">Work</a>
-  <a href="/#process">Process</a>
-  <a href="/packages">Packages</a>
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
-</nav>
-
-<div class="contact-page">
+<div class="page-header">
   <div class="wrap">
-    <div class="contact-grid">
-      <div class="contact-hero">
-        <div class="eyebrow">Get in touch</div>
-        <h1>Let's <em>talk</em>.</h1>
-        <p class="contact-intro">The best way to start is a free 30-minute discovery call. No pitch, no pressure — just a conversation about where you are and what you're looking for.</p>
-        <a href="https://calendly.com/lfcoaching/thelaunch" class="contact-cta-primary">Book a discovery call</a>
-      </div>
-      
-      <div class="contact-info">
-        <div class="info-block">
-          <div class="info-label">What happens on the call</div>
-          <div class="info-list">
-            <div class="info-item">
-              <span class="info-item-marker">01</span>
-              <span>We talk about your practice and where you are in your launch</span>
-            </div>
-            <div class="info-item">
-              <span class="info-item-marker">02</span>
-              <span>I share how the process works and what package might fit</span>
-            </div>
-            <div class="info-item">
-              <span class="info-item-marker">03</span>
-              <span>You decide if it feels right — no pressure either way</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="info-block">
-          <div class="info-label">Availability</div>
-          <p>I take on one to three builds a month. If I'm booked, I'll let you know when the next opening is. The Clarity Session can often start sooner.</p>
-        </div>
-        
-        <div class="info-block">
-          <div class="info-label">Response time</div>
-          <p>I aim to reply to emails within 1–2 business days. If you book a call, you'll get a confirmation immediately.</p>
-        </div>
-      </div>
-      
-      <div class="contact-alt">
-        <h2>Prefer email?</h2>
-        <p>If you'd rather write than call, send me a note. Tell me a bit about your work and what you're thinking about — I'll get back to you within a day or two.</p>
-        <a href="mailto:leah@leahfarmer.com" class="contact-email">leah@leahfarmer.com</a>
-      </div>
-    </div>
+    <div class="page-eyebrow">Get in touch</div>
+    <h1 class="page-title">Let's find out if <em>we're a fit</em>.</h1>
+    <p class="page-intro">A discovery call is free, 30 minutes, and no pressure. We meet, I learn where you are, and we figure out together whether working with me makes sense.</p>
   </div>
+</div>
+
+<div class="wrap">
+  <div class="contact-body">
+
+    <div>
+      <div class="contact-main-label">Book a discovery call</div>
+      <h2 class="contact-heading">Start with a <em>conversation</em>.</h2>
+      <p class="contact-desc">The discovery call is where we meet each other. You tell me about your work and where you are in your launch. I tell you about the process. <em>No pitch, no pressure</em> — just a conversation to see if it's a good fit.</p>
+      <p class="contact-desc">If it is, we talk about next steps. If it isn't, I'll do my best to point you somewhere useful.</p>
+      <a href="https://calendly.com/lfcoaching/thelaunch" class="contact-cta">Book a free discovery call</a>
+      <p class="contact-note">30 minutes · free · via Zoom or phone · you pick the time</p>
+    </div>
+
+    <div class="expect-block">
+      <div class="expect-label">What to expect</div>
+      <ul class="expect-items">
+        <li class="expect-item">
+          <span class="expect-num">01</span>
+          <div class="expect-text">
+            <strong>You book a time</strong>
+            Calendly shows you available slots — pick whatever works. You'll get a confirmation and a Zoom link.
+          </div>
+        </li>
+        <li class="expect-item">
+          <span class="expect-num">02</span>
+          <div class="expect-text">
+            <strong>We meet for 30 minutes</strong>
+            Tell me about your work, where you are, and what's been getting in the way. I'll ask questions and listen properly.
+          </div>
+        </li>
+        <li class="expect-item">
+          <span class="expect-num">03</span>
+          <div class="expect-text">
+            <strong>We figure out fit</strong>
+            If it makes sense to work together, I'll explain what that looks like. If it doesn't, no hard feelings — I'll say so honestly.
+          </div>
+        </li>
+        <li class="expect-item">
+          <span class="expect-num">04</span>
+          <div class="expect-text">
+            <strong>Next steps if you're ready</strong>
+            If you want to move forward, I'll send a questionnaire and we'll book the Clarity Session. That's where the real work begins.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <div class="faq-header">
+      <div class="section-label"><span class="section-num">—</span>Common questions</div>
+      <h2 class="faq-heading">Things people <em>usually ask</em>.</h2>
+    </div>
+    <ul class="faq-list">
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">How long does a full build take?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" role="region">
+          <p class="faq-a">Most full builds take four to eight weeks from the Clarity Session to launch, depending on how quickly content comes together. The Clarity and Form stages move quickly — the Build stage is usually where things slow down, and that's almost always on the content side, not mine.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Do I need to have my content ready?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" role="region">
+          <p class="faq-a">No. Some clients arrive with everything written. Others write as we go. I can also write content for you — that's part of the Full Launch package. We figure out the right approach during the Clarity Session.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">What if I already have a logo and brand?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" role="region">
+          <p class="faq-a">Great — we work with what you have. The Form stage adapts to your existing identity rather than starting from scratch. Some clients bring full brand guidelines; others have a logo and a vague sense of color. Both are fine.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">Can I pay in installments?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" role="region">
+          <p class="faq-a">Yes. All packages over $1,000 can be split into two or three installments. We agree on the schedule before the contract is signed. I can also invoice in GBP, EUR, CAD, or AUD.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">What platform do you build on?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" role="region">
+          <p class="faq-a">Custom static HTML or Next.js, hosted on Vercel. No WordPress, no Squarespace, no page builders. The sites are clean, fast, and built so a developer could pick them up later if your practice grows.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-q">I'm not sure I'm ready. Should I still reach out?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" role="region">
+          <p class="faq-a">Yes. The Clarity Session exists precisely for this — it's available as a standalone for practitioners who want help getting clear before they're ready to build. And the discovery call is just a conversation. Readiness isn't a prerequisite for booking it.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
 </div>
 
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-note">
-        <p style="font-size: 16px; font-weight: 500; margin-bottom: 8px;">The Launch <em style="color: var(--oxblood);">by Leah</em></p>
-        <p><em>One to three builds a month, by appointment.</em></p>
+        <p>The Launch is a small studio. <em>One to three builds a month, by appointment.</em> A project of <a href="https://leahfarmer.com">Leah Farmer</a>. Est. 2025.</p>
       </div>
-      <div class="signature">
-        <div class="signature-name"><img src="/First_Name_Signature.png" alt="Leah"></div>
-        <div class="signature-meta"><a href="https://leahfarmer.com" style="color: var(--ink-faint); text-decoration: none; border-bottom: 1px solid var(--ink-faint);">leahfarmer.com</a> · Est. 2025</div>
+      <div>
+        <div class="sig-mark">
+          <span class="sig-top">The Launch</span>
+          <div class="sig-rule"></div>
+          <span class="sig-by">by Leah</span>
+        </div>
+        <div class="sig-meta">leahfarmer.com · Est. 2025</div>
       </div>
     </div>
   </div>
 </footer>
 
-<script defer src="/_vercel/insights/script.js"></script>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
 </body>
 </html>

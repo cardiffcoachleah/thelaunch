@@ -3,558 +3,439 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Packages & Pricing — The Launch by Leah</title>
-<meta name="description" content="Clarity sessions, full launch packages, and ongoing care. Pricing for coaches, practitioners, and solopreneurs ready to go public.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Packages — The Launch by Leah</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F4EFE8;
-    --paper-soft: #ECE5D8;
-    --paper-deep: #DCD3C5;
-    --ink: #4A3A2A;
-    --ink-soft: #6F5E4D;
-    --ink-faint: #9A8C7C;
-    --oxblood: #6B2C2C;
-    --oxblood-bright: #8A3838;
-    --oxblood-deep: #4F1F1F;
-    --rule: rgba(74, 58, 42, 0.18);
-    --rule-soft: rgba(74, 58, 42, 0.10);
+    --ground:       #D8DEE6;
+    --ground-light: #E4E8EE;
+    --ink:          #111820;
+    --ink-soft:     #283040;
+    --ink-faint:    #5A6678;
+    --forest:       #2D4A3E;
+    --forest-light: rgba(45,74,62,0.12);
+    --copper:       #A0685A;
+    --copper-deep:  #7A4E43;
+    --rule:         rgba(17,24,32,0.12);
+    --rule-soft:    rgba(17,24,32,0.07);
   }
-  
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  
+
   body {
     font-family: 'Fraunces', Georgia, serif;
     font-weight: 400;
-    background: var(--paper);
+    background: var(--ground);
     color: var(--ink);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "kern", "liga", "calt";
-    font-variation-settings: "opsz" 14, "SOFT" 50;
+    font-variation-settings: "opsz" 14;
   }
-  
-  .wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  
-  /* Top bar */
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+  /* ── NAV ── */
   .topbar {
-    padding: 28px 32px;
+    padding: 24px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--rule-soft);
-    position: sticky;
-    top: 0;
-    background: var(--paper);
-    z-index: 100;
   }
-  
-  .topbar-mark {
-    font-family: 'Fraunces', serif;
-    font-size: 16px;
-    font-weight: 500;
-    font-variation-settings: "opsz" 14;
-    letter-spacing: -0.005em;
-  }
-  .topbar-mark a { color: inherit; text-decoration: none; }
-  .topbar-mark em { font-style: italic; font-weight: 400; color: var(--oxblood); }
-  
-  .topbar-nav {
-    display: flex;
-    gap: 28px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  .topbar-nav a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .topbar-nav a:hover { color: var(--oxblood); }
-  .topbar-nav a.active { color: var(--oxblood); }
 
-  @media (max-width: 600px) {
-    .topbar-nav { display: none; }
-  }
-  
-  .mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 24px;
-    height: 20px;
-    position: relative;
-    flex-shrink: 0;
-  }
-  .mobile-toggle span {
-    display: block;
-    width: 100%;
-    height: 1.5px;
-    background: var(--ink);
-    position: absolute;
-    left: 0;
-    transition: transform 0.25s ease, top 0.25s ease;
-  }
-  .mobile-toggle span:first-child { top: 4px; }
-  .mobile-toggle span:last-child { top: 14px; }
-  .menu-open .mobile-toggle span:first-child { top: 9px; transform: rotate(45deg); }
-  .menu-open .mobile-toggle span:last-child { top: 9px; transform: rotate(-45deg); }
-  @media (max-width: 600px) { .mobile-toggle { display: block; } }
-  
-  .mobile-nav {
-    display: none;
+  .topbar-mark { display: flex; flex-direction: column; line-height: 1; gap: 1px; text-decoration: none; }
+  .mark-line1 { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+  .mark-line2 { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 300; font-style: italic; color: var(--forest); font-variation-settings: "opsz" 24; }
+
+  .topbar-nav { display: flex; gap: 32px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .topbar-nav a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+  .topbar-nav a:hover { color: var(--forest); }
+  .topbar-nav a.active { color: var(--forest); border-bottom: 1px solid var(--forest); padding-bottom: 1px; }
+  @media (max-width: 600px) { .topbar-nav { display: none; } }
+
+  /* ── PAGE HEADER ── */
+  .page-header { padding: 72px 0 64px; border-bottom: 1px solid var(--rule-soft); }
+  .page-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 24px; }
+  .page-title { font-size: clamp(40px, 6vw, 72px); font-weight: 300; line-height: 1.0; letter-spacing: -0.03em; color: var(--ink); font-variation-settings: "opsz" 144; margin-bottom: 24px; max-width: 16ch; }
+  .page-title em { font-style: italic; color: var(--forest); }
+  .page-intro { font-size: 18px; line-height: 1.65; color: var(--ink-soft); max-width: 52ch; font-variation-settings: "opsz" 24; }
+
+  /* ── CROSS LAYOUT ── */
+  .cross {
+    padding: 56px 0 0;
+    display: flex;
     flex-direction: column;
-    padding: 24px 32px 32px;
-    border-bottom: 1px solid var(--rule-soft);
-    position: sticky;
-    top: 0;
-    background: var(--paper);
-    z-index: 100;
+    gap: 16px;
+  }
+
+  /* shared card base */
+  .card {
+    background: var(--ground-light);
+    border: 0.5px solid var(--rule);
+    border-radius: 12px;
+    padding: 40px 44px;
+  }
+
+  /* featured: forest left border */
+  .card-featured {
+    border-left: 4px solid var(--forest);
+    border-radius: 0 12px 12px 0;
+  }
+
+  /* top + bottom cards: two-col inner */
+  .card-wide-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (max-width: 700px) {
+    .card-wide-inner { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  /* middle row */
+  .row-mid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 700px) {
+    .row-mid { grid-template-columns: 1fr; }
+  }
+
+  /* ── CARD INTERNALS ── */
+  .card-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    gap: 20px;
-  }
-  .mobile-nav a { color: var(--ink-soft); text-decoration: none; }
-  .mobile-nav a:hover { color: var(--oxblood); }
-  .menu-open .mobile-nav { display: flex; }
-  
-  /* Eyebrow */
-  .eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-  }
-  
-  /* Page header */
-  .page-header {
-    padding: 100px 0 80px;
-  }
-  .page-header h1 {
-    font-size: clamp(38px, 6vw, 64px);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    font-variation-settings: "opsz" 144, "SOFT" 100;
-    margin-top: 28px;
-    margin-bottom: 32px;
-    max-width: 16ch;
-  }
-  .page-header h1 em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--oxblood-bright);
-  }
-  .page-header-sub {
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    max-width: 540px;
-  }
-  
-  /* Sections */
-  section {
-    padding: 72px 0;
-    border-top: 1px solid var(--rule-soft);
-  }
-  
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
+    font-size: 9px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--ink-faint);
-    margin-bottom: 48px;
+    margin-bottom: 10px;
   }
-  .section-label-num {
-    color: var(--oxblood);
-    margin-right: 12px;
-  }
-  
-  /* Package cards */
-  .packages {
-    display: grid;
-    gap: 36px;
-    grid-template-columns: 1fr;
-  }
-  
-  @media (min-width: 760px) {
-    .packages { grid-template-columns: 1fr; max-width: 840px; }
-  }
-  
-  .package {
-    padding: 48px 40px;
-    border: 1px solid var(--rule);
-    background: var(--paper-soft);
-  }
-  
-  .package-featured {
-    border-color: var(--oxblood);
-    background: var(--paper-deep);
-  }
-  
-  .package:last-child {
-    background: var(--paper);
-  }
-  
-  .package-badge {
+
+  .card-tag.accent { color: var(--forest); }
+
+  .badge {
+    display: inline-block;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
+    font-size: 8px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--oxblood);
-    margin-bottom: 20px;
-    display: block;
+    background: var(--copper);
+    color: var(--ground);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
   }
-  
-  .package h2 {
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-    font-variation-settings: "opsz" 48;
-    margin-bottom: 16px;
-  }
-  .package h2 em {
-    font-style: italic;
-    color: var(--oxblood-bright);
-  }
-  
-  .package-price {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    color: var(--oxblood);
-    margin-bottom: 24px;
-  }
-  
-  .package-desc {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin-bottom: 28px;
-    max-width: 48ch;
-  }
-  
-  .package-includes {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  
-  .package-item {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    padding: 12px 0;
-    border-top: 1px solid var(--rule-soft);
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-  }
-  .package-item:last-child { border-bottom: 1px solid var(--rule-soft); }
-  
-  .package-item-marker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    color: var(--oxblood);
-    flex-shrink: 0;
-  }
-  
-  /* Notes section */
-  .notes {
-    display: grid;
-    gap: 48px;
-    grid-template-columns: 1fr;
-    max-width: 680px;
-  }
-  
-  .note h3 {
-    font-size: 20px;
-    font-weight: 400;
-    font-style: italic;
+
+  .card-name {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 72;
     color: var(--ink);
     margin-bottom: 12px;
-    font-variation-settings: "opsz" 24;
   }
-  
-  .note p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink-soft);
+
+  .card-name em { font-style: italic; color: var(--forest); }
+
+  .card-price {
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 48;
+    margin-bottom: 4px;
   }
-  
-  /* CTA */
-  .closing {
-    padding: 120px 0 64px;
-    border-top: 1px solid var(--rule-soft);
-  }
-  .closing-text {
-    font-size: clamp(26px, 3.8vw, 38px);
-    font-weight: 400;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
-    font-variation-settings: "opsz" 72;
-    max-width: 22ch;
-    margin-bottom: 48px;
-  }
-  .closing-text em { font-style: italic; color: var(--oxblood-bright); }
-  .closing-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
+
+  .card-price-note {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.2em;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .card-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    font-variation-settings: "opsz" 24;
+    max-width: 44ch;
+  }
+
+  .card-desc em { font-style: italic; color: var(--ink); }
+
+  .card-includes {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--paper);
-    background: var(--oxblood);
-    text-decoration: none;
-    padding: 18px 28px;
-    border: 1px solid var(--oxblood);
-    transition: background 0.2s ease;
+    color: var(--forest);
+    margin-bottom: 10px;
   }
-  .closing-cta::after { content: "→"; font-family: 'Fraunces', serif; font-size: 16px; letter-spacing: 0; }
-  .closing-cta:hover { background: var(--oxblood-deep); }
-  
-  /* Footer */
-  footer {
-    padding: 88px 0 56px;
-    border-top: 1px solid var(--rule-soft);
-  }
-  .foot-grid {
+
+  .card-items { list-style: none; border-top: 1px solid var(--rule-soft); }
+
+  .card-item {
     display: grid;
-    gap: 48px;
-    grid-template-columns: 1fr;
-    align-items: end;
-  }
-  @media (min-width: 760px) { .foot-grid { grid-template-columns: 1fr auto; } }
-  .foot-note {
+    grid-template-columns: 16px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
     font-size: 14px;
     line-height: 1.6;
     color: var(--ink-soft);
-    max-width: 36ch;
+    align-items: start;
   }
-  .foot-note em { font-style: italic; color: var(--ink); }
-  .signature { text-align: right; }
-  .signature-name { display: block; margin-bottom: 12px; text-align: right; }
-  .signature-name img {
-    height: 48px;
-    width: auto;
-    display: inline-block;
-    filter: brightness(0) saturate(100%) invert(16%) sepia(42%) saturate(1636%) hue-rotate(338deg) brightness(92%) contrast(89%);
+
+  .card-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--forest);
+    margin-top: 7px;
+    flex-shrink: 0;
   }
-  .signature-meta {
+
+  .card-featured .card-dot { background: var(--copper); }
+  .card-featured .card-tag.accent { color: var(--forest); }
+
+  .card-note {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-faint);
+    line-height: 1.65;
+    margin-top: 16px;
+    font-variation-settings: "opsz" 14;
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--ink-faint);
+    text-decoration: none;
+    padding: 13px 20px;
+    margin-top: 20px;
+    transition: background 0.2s, color 0.2s;
   }
-  
-  ::selection { background: var(--oxblood); color: var(--paper); }
+
+  .card-cta::after { content: "→"; font-family: 'Fraunces', serif; font-size: 14px; letter-spacing: 0; }
+
+  .cta-outline { color: var(--forest); border: 1px solid var(--forest); background: transparent; }
+  .cta-outline:hover { background: var(--forest-light); }
+  .cta-filled { background: var(--copper); color: var(--ground); border: 1px solid var(--copper); }
+  .cta-filled:hover { background: var(--copper-deep); border-color: var(--copper-deep); }
+
+  /* ── PAYMENT NOTE ── */
+  .payment-note {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule-soft);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 700px) { .payment-note { grid-template-columns: 1fr; gap: 24px; } }
+
+  .pay-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--forest); margin-bottom: 10px; }
+  .pay-text { font-size: 15px; line-height: 1.7; color: var(--ink-soft); }
+
+  /* ── CLOSING ── */
+  .closing { padding: 80px 0 72px; }
+  .closing-text { font-size: clamp(22px, 3.2vw, 34px); font-weight: 400; line-height: 1.25; letter-spacing: -0.015em; font-variation-settings: "opsz" 72; max-width: 28ch; margin-bottom: 36px; color: var(--ink); }
+  .closing-text em { font-style: italic; color: var(--forest); }
+  .closing-cta { display: inline-flex; align-items: center; gap: 14px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ground); background: var(--copper); text-decoration: none; padding: 16px 24px; transition: background 0.2s; }
+  .closing-cta:hover { background: var(--copper-deep); }
+  .closing-cta::after { content: "→"; font-family: 'Fraunces', serif; font-size: 15px; letter-spacing: 0; }
+
+  /* ── FOOTER ── */
+  footer { padding: 64px 0 48px; border-top: 1px solid var(--rule); }
+  .foot-grid { display: grid; gap: 40px; grid-template-columns: 1fr; align-items: end; }
+  @media (min-width: 760px) { .foot-grid { grid-template-columns: 1fr auto; } }
+  .foot-note { font-size: 14px; line-height: 1.65; color: var(--ink-faint); max-width: 40ch; }
+  .foot-note em { font-style: italic; color: var(--ink-soft); }
+  .foot-note a { color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(45,74,62,0.2); }
+  .foot-note a:hover { border-bottom-color: var(--forest); }
+  .sig-mark { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+  .sig-top { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+  .sig-rule { width: 64px; height: 1.5px; background: var(--copper); align-self: flex-end; }
+  .sig-by { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; font-style: italic; color: var(--forest); font-variation-settings: "opsz" 48; }
+  .sig-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-top: 4px; }
+
+  ::selection { background: var(--forest); color: var(--ground); }
 </style>
 </head>
 <body>
 
 <header class="topbar">
-  <div class="topbar-mark"><a href="/">The Launch <em>by Leah</em></a></div>
+  <a href="/" class="topbar-mark">
+    <span class="mark-line1">The Launch</span>
+    <span class="mark-line2">by Leah</span>
+  </a>
   <nav class="topbar-nav">
-    <a href="/#work">Work</a>
-    <a href="/#process">Process</a>
+    <a href="/">Work</a>
     <a href="/packages" class="active">Packages</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
   </nav>
-  <button class="mobile-toggle" aria-label="Menu" onclick="document.body.classList.toggle('menu-open')">
-    <span></span><span></span>
-  </button>
 </header>
-
-<nav class="mobile-nav">
-  <a href="/#work">Work</a>
-  <a href="/#process">Process</a>
-  <a href="/packages">Packages</a>
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
-</nav>
 
 <div class="page-header">
   <div class="wrap">
-    <div class="eyebrow">Packages & Pricing</div>
-    <h1>Three ways <em>in</em>.</h1>
-    <p class="page-header-sub">Everything starts with a conversation. From there, we figure out what you need — and nothing you don't.</p>
+    <div class="page-eyebrow">What's included</div>
+    <h1 class="page-title">The work, <em>and what it costs</em>.</h1>
+    <p class="page-intro">Four ways to work together, depending on where you are. The Clarity Session is the starting point for all of them.</p>
   </div>
 </div>
 
-<section>
-  <div class="wrap">
-    <div class="section-label"><span class="section-label-num">01</span>The packages</div>
-    
-    <div class="packages">
-      
-      <!-- Clarity Session -->
-      <div class="package">
-        <span class="package-badge">Entry point</span>
-        <h2>The <em>Clarity</em> Session</h2>
-        <div class="package-price">$275</div>
-        <p class="package-desc">For practitioners who want coaching on what they want to say and how they want to show up — before committing to a full build. This fee is credited toward the Full Launch if you decide to continue.</p>
-        <div class="package-includes">
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>30-minute discovery call</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Questionnaire + shared inspiration page</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>90-minute deep-dive coaching session</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Clarity summary document you keep regardless</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Full Launch -->
-      <div class="package package-featured">
+<div class="wrap">
+  <div class="cross">
+
+    <!-- TOP: Clarity Session -->
+    <div class="card">
+      <div class="card-wide-inner">
         <div>
-          <span class="package-badge">Most popular</span>
-          <h2>The Full <em>Launch</em></h2>
-          <div class="package-price">Starting at $3,250</div>
-          <p class="package-desc">The whole thing — from coaching you through what you want to say, to building the site that says it. Clarity session included. This is for practitioners ready to go from private work to a public presence.</p>
+          <div class="card-tag">01 — Entry point</div>
+          <h2 class="card-name">The Clarity <em>Session</em></h2>
+          <div class="card-price">$275</div>
+          <div class="card-price-note">Credited in full toward any build</div>
+          <p class="card-desc">Before anything gets built, we figure out what you actually want to say. This is coaching, not intake — a proper conversation about your work, your people, and what's been keeping you from going public.</p>
+          <p class="card-desc">Available standalone for practitioners who want to get clear before they're ready to build.</p>
+          <a href="https://calendly.com/lfcoaching/thelaunch" class="card-cta cta-outline">Book a session</a>
         </div>
-        <div class="package-includes">
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Everything in the Clarity Session</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Aesthetic direction — palette, typography, feel</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Logo & visual identity direction</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Page planning and site architecture</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Content — written by you, by me, or together</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Custom site build, clean and fast</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>1–2 rounds of review</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Launch day support</span>
-          </div>
+        <div>
+          <div class="card-includes">What's included</div>
+          <ul class="card-items">
+            <li class="card-item"><div class="card-dot"></div><span>A 30-minute discovery call to meet each other and see where you are</span></li>
+            <li class="card-item"><div class="card-dot"></div><span>A short questionnaire and a shared inspiration page — sites you love, images that speak to you</span></li>
+            <li class="card-item"><div class="card-dot"></div><span>A 90-minute coaching session — who your client is, what you're building, and what's been keeping you from it</span></li>
+            <li class="card-item"><div class="card-dot"></div><span>A written clarity summary after the session</span></li>
+          </ul>
+          <p class="card-note">Also available on its own — no build required.</p>
         </div>
-      </div>
-      
-      <!-- Ongoing Care -->
-      <div class="package">
-        <span class="package-badge">After launch</span>
-        <h2><em>Ongoing</em> Care</h2>
-        <div class="package-price">$50/month + $85/hr for new pages</div>
-        <p class="package-desc">For when you're live and want someone to keep an eye on things. Bug fixes, small edits, keeping it current. New pages or bigger changes scoped and priced as they come up.</p>
-        <div class="package-includes">
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Monthly maintenance and small updates</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>Bug fixes and content tweaks</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>New pages at $85/hr</span>
-          </div>
-          <div class="package-item">
-            <span class="package-item-marker">—</span>
-            <span>No contract — month to month</span>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-label"><span class="section-label-num">02</span>Good to know</div>
-    
-    <div class="notes">
-      <div class="note">
-        <h3>Payment plans are available.</h3>
-        <p>The Full Launch can be split into installments. We'll figure out what works when we talk.</p>
-      </div>
-      <div class="note">
-        <h3>Prices are in USD.</h3>
-        <p>I can invoice in GBP, EUR, CAD, or AUD — whatever's easiest for you.</p>
-      </div>
-      <div class="note">
-        <h3>The Clarity Session credit.</h3>
-        <p>If you start with just the Clarity Session and later decide to do the Full Launch, the $275 is credited toward the full package price. No penalty for taking your time.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="closing">
-  <div class="wrap">
-    <p class="closing-text">Ready to start? <em>Let's talk</em>.</p>
-    <a href="https://calendly.com/lfcoaching/thelaunch" class="closing-cta">Book a call</a>
+    <!-- MIDDLE: Refresh + Full Launch -->
+    <div class="row-mid">
+
+      <div class="card">
+        <div class="card-tag">02 — For existing sites</div>
+        <h2 class="card-name">The <em>Refresh</em></h2>
+        <div class="card-price">$1,750</div>
+        <div class="card-price-note">Clarity Session included<br>Installments available</div>
+        <p class="card-desc">You already have a site. It just doesn't feel like you anymore — or maybe it never did. The Refresh takes what you have and makes it <em>yours</em>: a new aesthetic direction, your content reshaped, and a clean rebuild that looks like it was made on purpose.</p>
+        <div class="card-includes">What's included</div>
+        <ul class="card-items">
+          <li class="card-item"><div class="card-dot"></div><span>The Clarity Session</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>Two or three aesthetic direction options — palette, typography, feel</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>A custom rebuild using your existing content, reshaped into the new direction</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>One round of edits — we go through every page together</span></li>
+        </ul>
+        <p class="card-note">For practitioners who launched quickly and are ready to take their site seriously.</p>
+        <a href="https://calendly.com/lfcoaching/thelaunch" class="card-cta cta-outline">Start with a call</a>
+      </div>
+
+      <div class="card card-featured">
+        <div class="badge">Most popular</div>
+        <div class="card-tag accent">03 — The full thing</div>
+        <h2 class="card-name">The Full <em>Launch</em></h2>
+        <div class="card-price">From $3,250</div>
+        <div class="card-price-note">Clarity Session included<br>Installments available</div>
+        <p class="card-desc">The whole thing, start to finish. We get clear on what you want to say, build an aesthetic direction that fits, and make a site that actually represents you and your work. <em>This is the one most people choose.</em></p>
+        <div class="card-includes">What's included</div>
+        <ul class="card-items">
+          <li class="card-item"><div class="card-dot"></div><span>Everything in the Clarity Session</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>Aesthetic direction — palette, typography, photography, overall feel</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>Logo and visual identity direction</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>Page planning — we map what you need and how it fits together</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>Content written by you, by me, or together</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>Custom site build — clean enough to hand off to an engineer later</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>One to two rounds of review</span></li>
+          <li class="card-item"><div class="card-dot"></div><span>Launch day support</span></li>
+        </ul>
+        <a href="https://calendly.com/lfcoaching/thelaunch" class="card-cta cta-filled">Start with a call</a>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM: Ongoing Care -->
+    <div class="card">
+      <div class="card-wide-inner">
+        <div>
+          <div class="card-tag">04 — Post-launch</div>
+          <h2 class="card-name">Ongoing <em>Care</em></h2>
+          <div class="card-price">$50<span style="font-size:17px; color:var(--ink-faint); font-variation-settings:'opsz' 24;">/mo</span></div>
+          <div class="card-price-note">+ $85/hr for new pages or significant work</div>
+          <p class="card-desc">After launch, things come up. Content changes, a new offering, a broken link. Ongoing Care means I'm already familiar with your site when you need me — no onboarding, no delay.</p>
+          <a href="https://calendly.com/lfcoaching/thelaunch" class="card-cta cta-outline">Get in touch</a>
+        </div>
+        <div>
+          <div class="card-includes">What's included</div>
+          <ul class="card-items">
+            <li class="card-item"><div class="card-dot"></div><span>Bug fixes and small content edits — text changes, image swaps, minor layout tweaks</span></li>
+            <li class="card-item"><div class="card-dot"></div><span>Priority response — I already know your site, no onboarding needed</span></li>
+            <li class="card-item"><div class="card-dot"></div><span>New pages or bigger changes scoped and quoted at $85/hr</span></li>
+          </ul>
+          <p class="card-note">Month to month. No contract. Cancel whenever.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
-</section>
+
+  <!-- Payment + currency -->
+  <div class="payment-note">
+    <div>
+      <div class="pay-label">Payment plans</div>
+      <p class="pay-text">All packages over $1,000 can be split into two or three installments. We work out a schedule before the contract is signed.</p>
+    </div>
+    <div>
+      <div class="pay-label">Currency</div>
+      <p class="pay-text">Prices listed in USD. I can invoice in GBP, EUR, CAD, or AUD at the current rate. Based in Wales — used to working across time zones.</p>
+    </div>
+  </div>
+
+  <div class="closing">
+    <p class="closing-text">Not sure which is right for you? <em>Let's figure it out together.</em></p>
+    <a href="https://calendly.com/lfcoaching/thelaunch" class="closing-cta">Book a discovery call</a>
+  </div>
+
+</div>
 
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-note">
-        <p style="font-size: 16px; font-weight: 500; margin-bottom: 8px;">The Launch <em style="color: var(--oxblood);">by Leah</em></p>
-        <p><em>One to three builds a month, by appointment.</em></p>
+        <p>The Launch is a small studio. <em>One to three builds a month, by appointment.</em> A project of <a href="https://leahfarmer.com">Leah Farmer</a>. Est. 2025.</p>
       </div>
-      <div class="signature">
-        <div class="signature-name"><img src="/First_Name_Signature.png" alt="Leah"></div>
-        <div class="signature-meta"><a href="https://leahfarmer.com" style="color: var(--ink-faint); text-decoration: none; border-bottom: 1px solid var(--ink-faint);">leahfarmer.com</a> · Est. 2025</div>
+      <div>
+        <div class="sig-mark">
+          <span class="sig-top">The Launch</span>
+          <div class="sig-rule"></div>
+          <span class="sig-by">by Leah</span>
+        </div>
+        <div class="sig-meta">leahfarmer.com · Est. 2025</div>
       </div>
     </div>
   </div>
 </footer>
 
-<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
