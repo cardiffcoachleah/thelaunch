@@ -94,6 +94,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
+    align-items: start;
   }
 
   @media (max-width: 760px) { .row-mid { grid-template-columns: 1fr; } }
@@ -104,8 +105,6 @@
     border: 0.5px solid var(--rule);
     border-radius: 12px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
   }
 
   .acc-card.featured {
@@ -119,7 +118,6 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    flex: 1;
   }
 
   .acc-header:hover { background: rgba(17,24,32,0.03); }
@@ -458,11 +456,16 @@
 
 <script>
   function toggle(id) {
-    var body = document.getElementById('body-' + id);
-    var chev = document.getElementById('chev-' + id);
-    var isOpen = body.classList.contains('open');
-    body.classList.toggle('open', !isOpen);
-    chev.style.transform = isOpen ? '' : 'rotate(180deg)';
+    var ids = ['starter', 'refresh', 'launch'];
+    var isOpen = document.getElementById('body-' + id).classList.contains('open');
+    ids.forEach(function(i) {
+      document.getElementById('body-' + i).classList.remove('open');
+      document.getElementById('chev-' + i).style.transform = '';
+    });
+    if (!isOpen) {
+      document.getElementById('body-' + id).classList.add('open');
+      document.getElementById('chev-' + id).style.transform = 'rotate(180deg)';
+    }
   }
 </script>
 
