@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Clarity Session — The Launch by Leah</title>
+<meta name="description" content="Before anything gets built, we get clear. A 90-minute coaching session for practitioners ready to stop almost-launching. August special: $195.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #D8DEE6;
+    --ground-light: #E4E8EE;
+    --ground-mid: #C8D0DA;
+    --ink: #111820;
+    --ink-soft: #283040;
+    --ink-faint: #5A6678;
+    --forest: #2D4A3E;
+    --forest-mid: #3D6054;
+    --forest-light: rgba(45,74,62,0.12);
+    --copper: #A0685A;
+    --copper-deep: #7A4E43;
+    --rule: rgba(17,24,32,0.12);
+    --rule-soft: rgba(17,24,32,0.07);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    background: var(--ground);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt";
+    font-variation-settings: "opsz" 14;
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+  }
+
+  /* Nav */
+  .topbar {
+    padding: 28px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--rule-soft);
+    position: sticky;
+    top: 0;
+    background: var(--ground);
+    z-index: 100;
+  }
+
+  @media (max-width: 600px) {
+    .topbar { padding: 28px 20px; }
+  }
+
+  .topbar-mark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .topbar-mark a { color: inherit; text-decoration: none; }
+  .topbar-mark .mark-italic {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    font-variation-settings: "opsz" 72;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--forest);
+  }
+
+  .topbar-nav {
+    display: flex;
+    gap: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .topbar-nav a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .topbar-nav a:hover { color: var(--forest); }
+
+  @media (max-width: 600px) {
+    .topbar-nav { display: none; }
+  }
+
+  /* Hero */
+  .hero {
+    padding: 96px 0 72px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--copper);
+    border: 1px solid var(--copper);
+    padding: 8px 16px;
+    margin-bottom: 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 32px;
+    max-width: 16ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--forest);
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 560px;
+    font-variation-settings: "opsz" 28;
+    margin-bottom: 48px;
+  }
+
+  .hero-price {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .hero-price-current {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    color: var(--forest);
+  }
+
+  .hero-price-original {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+    text-decoration: line-through;
+  }
+
+  .hero-price-note {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-faint);
+    font-variation-settings: "opsz" 14;
+    margin-bottom: 48px;
+  }
+
+  /* CTA */
+  .cta-filled {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ground);
+    background: var(--copper);
+    text-decoration: none;
+    padding: 18px 28px;
+    transition: background 0.2s ease;
+  }
+  .cta-filled::after {
+    content: "→";
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+  .cta-filled:hover { background: var(--copper-deep); }
+
+  /* What's included */
+  section {
+    padding: 72px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 48px;
+  }
+  .section-label-num {
+    color: var(--forest);
+    margin-right: 12px;
+  }
+
+  .includes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 680px;
+  }
+
+  .include-item {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 24;
+  }
+  .include-item:last-child { border-bottom: 1px solid var(--rule-soft); }
+
+  .include-marker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--forest);
+    flex-shrink: 0;
+    width: 20px;
+  }
+
+  /* Interlude panel */
+  .interlude {
+    background: var(--forest);
+    color: var(--ground);
+    padding: 80px 0;
+    border-top: none;
+  }
+
+  .interlude-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 800px) {
+    .interlude-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+  }
+
+  .interlude-quote {
+    font-size: clamp(24px, 3.5vw, 34px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.35;
+    font-variation-settings: "opsz" 72;
+    color: var(--ground-light);
+  }
+
+  .interlude-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ground-mid);
+    font-variation-settings: "opsz" 24;
+  }
+
+  /* Note */
+  .note-section {
+    max-width: 600px;
+  }
+
+  .note-section h3 {
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--forest);
+    margin-bottom: 16px;
+    font-variation-settings: "opsz" 48;
+  }
+
+  .note-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    font-variation-settings: "opsz" 24;
+  }
+
+  /* Closing */
+  .closing {
+    padding: 96px 0 64px;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .closing-text {
+    font-size: clamp(26px, 3.8vw, 38px);
+    font-weight: 300;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 72;
+    max-width: 22ch;
+    margin-bottom: 48px;
+  }
+  .closing-text em { font-style: italic; color: var(--forest); }
+
+  /* Footer */
+  footer {
+    padding: 72px 0 48px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .foot-grid {
+    display: grid;
+    gap: 48px;
+    grid-template-columns: 1fr;
+    align-items: end;
+  }
+  @media (min-width: 760px) { .foot-grid { grid-template-columns: 1fr auto; } }
+  .foot-note {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-faint);
+    max-width: 36ch;
+  }
+  .foot-note em { font-style: italic; color: var(--ink-soft); }
+  .signature { text-align: right; }
+  .signature-name { display: block; margin-bottom: 12px; text-align: right; }
+  .signature-name img {
+    height: 48px;
+    width: auto;
+    display: inline-block;
+  }
+  .signature-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .signature-meta a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  ::selection { background: var(--forest); color: var(--ground); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-mark">
+    <a href="/">The Launch<span class="mark-italic">by Leah</span></a>
+  </div>
+  <nav class="topbar-nav">
+    <a href="/#work">Work</a>
+    <a href="/#process">Process</a>
+    <a href="/packages">Packages</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-badge">August special</div>
+    <h1>The <em>Clarity</em> Session</h1>
+    <p class="hero-sub">Before anything gets built, we figure out what you actually want to say. This is coaching, not just intake. A proper conversation about your work, your people, and what's been keeping you from going public.</p>
+    <div class="hero-price">
+      <span class="hero-price-current">$195</span>
+      <span class="hero-price-original">$275</span>
+    </div>
+    <p class="hero-price-note">Credited in full toward any build package.</p>
+    <a href="https://calendly.com/lfcoaching/thelaunch" class="cta-filled">Book a clarity session</a>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label"><span class="section-label-num">01</span>What's included</div>
+    <div class="includes-grid">
+      <div class="include-item">
+        <span class="include-marker">A</span>
+        <span>A 30-minute discovery call to meet each other and see where you are</span>
+      </div>
+      <div class="include-item">
+        <span class="include-marker">B</span>
+        <span>A short questionnaire and a shared inspiration page where you gather sites and images that speak to you</span>
+      </div>
+      <div class="include-item">
+        <span class="include-marker">C</span>
+        <span>A 90-minute coaching session where we go deep on who your client is, what you're building, and what's been keeping you from it</span>
+      </div>
+      <div class="include-item">
+        <span class="include-marker">D</span>
+        <span>A written clarity summary you keep regardless of whether you continue to a build</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="interlude">
+  <div class="wrap">
+    <div class="interlude-grid">
+      <p class="interlude-quote">"The coaching is the work. The website is its artifact."</p>
+      <p class="interlude-body">Most of the people I work with have been almost-launching for months. Sometimes years. The Clarity Session exists because the bottleneck is never technical. It's figuring out what you want to say and finding the nerve to say it publicly. That clarity changes everything, whether or not you build with me afterward.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label"><span class="section-label-num">02</span>Good to know</div>
+    <div class="note-section">
+      <h3>Available on its own.</h3>
+      <p>You don't have to commit to a full build. The Clarity Session is valuable on its own, and you walk away with a written summary you can take to any designer. If you decide to continue with me, the $195 is credited in full toward any package.</p>
+      
+      <h3>August pricing.</h3>
+      <p>The regular price is $275. For August, it's $195. Same session, same depth, same deliverable.</p>
+      
+      <h3>Who it's for.</h3>
+      <p>Coaches, healers, somatic practitioners, therapists, and solopreneurs who know what they do but haven't been able to get it online yet. If you keep almost-launching and not quite, this is the place to start.</p>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="closing-text">Ready to get <em>clear</em>?</p>
+    <a href="https://calendly.com/lfcoaching/thelaunch" class="cta-filled">Book a clarity session</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-note">
+        <p>The Launch <em>by Leah</em></p>
+        <p><em>One to three builds a month, by appointment.</em></p>
+      </div>
+      <div class="signature">
+        <div class="signature-name"><img src="/First_Name_Signature.png" alt="Leah"></div>
+        <div class="signature-meta"><a href="https://leahfarmer.com">leahfarmer.com</a> · Est. 2025</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
